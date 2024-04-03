@@ -1,3 +1,4 @@
+//server/server.js
 require('dotenv').config(); 
 const app = require('./src/index.js');
 
