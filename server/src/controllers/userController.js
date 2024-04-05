@@ -18,11 +18,18 @@ const login = (req, res, next) => {
     if (users.length > 0) {
       const user = users[0];
       // Aquí deberías comparar la contraseña con hash usando bcrypt si fuera un entorno de producción
+
+
       if (password === user.password) {
-        res.send('Login exitoso');
+        // Envía una respuesta JSON con un mensaje y el username
+        res.json({ message: 'Login exitoso', username: user.username }); // Ajusta según la estructura de tu objeto 'user'
       } else {
-        res.status(401).send('Credenciales incorrectas');
+        // Envía una respuesta JSON con un mensaje de error
+        res.status(401).json({ message: 'Credenciales incorrectas' });
       }
+      
+
+
     } else {
       res.status(401).send('Usuario no encontrado');
     }
