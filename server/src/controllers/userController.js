@@ -79,9 +79,45 @@ const registerUser = async (req, res, next) => {
 
 
 
-const getUserDetails = (req, res, next) => {
-  // Agrega aquí tu lógica para obtener detalles del usuario
+const getUserImagenUSDT = (req, res, next) => {
+  const { userId } = req.params; // Asegúrate de que 'userId' coincide con el parámetro que defines en tu ruta
+  const userDetailsQuery = 'SELECT username, imagenusdt FROM usuarios WHERE user_id = ?';
+
+  db.query(userDetailsQuery, [userId], (err, result) => {
+    if (err) {
+      return next(err);
+    }
+
+    if (result.length > 0) {
+      const { username, imagenusdt } = result[0];
+      res.json({ username, imagenusdt });
+    } else {
+      res.status(404).json({ message: 'Usuario no encontrado' });
+    }
+  });
 };
+
+
+
+const getUserImagenBTC = (req, res, next) => {
+  const { userId } = req.params;
+  const userDetailsQuery = 'SELECT username, imagenbtc FROM usuarios WHERE user_id = ?';
+
+  db.query(userDetailsQuery, [userId], (err, result) => {
+    if (err) {
+      return next(err);
+    }
+
+    if (result.length > 0) {
+      const { username, imagenbtc } = result[0];
+      res.json({ username, imagenbtc });
+    } else {
+      res.status(404).json({ message: 'Usuario no encontrado' });
+    }
+  });
+};
+
+
 
 const updateUserPassword = (req, res, next) => {
   // Agrega aquí tu lógica para actualizar la contraseña del usuario
@@ -90,6 +126,7 @@ const updateUserPassword = (req, res, next) => {
 module.exports = {
   login,
   registerUser,
-  getUserDetails,
+  getUserImagenUSDT,
+  getUserImagenBTC, 
   updateUserPassword
 };

@@ -1,6 +1,8 @@
-import React from 'react'
-import Menu from '../components/Dashboard/Menu/Menu'
-import Container from '../components/Dashboard/Container/Container'
+import React from 'react';
+import Menu from '../components/Dashboard/Menu/Menu';
+import Container from '../components/Dashboard/Container/Container';
+import GetUserImagenBTC from '../components/Dashboard/Funciones/GetUserImagenBTC';
+import GetUImagenUSDT from '../components/Dashboard/Funciones/GetUImagenUSDT';
 
 
 const DashboardUser = () => {
@@ -8,9 +10,11 @@ const DashboardUser = () => {
     <div>
          <Menu/>
          <Container/>
-         Bienvenido {/* aqui debe estar la logica que muestra el usuario en pantalla */}
+         Bienvenido {/* Aquí debe ir la lógica para mostrar el nombre del usuario en pantalla */}
+         <GetUImagenUSDT userId="34" />
+         <GetUserImagenBTC userId="34" />
     </div>
-  )
-}
+  );
+};
 
-export default DashboardUser
+export default DashboardUser;
