@@ -76,73 +76,70 @@ if (!username.trim() || !password.trim()) {
     return <Navigate to="/login" />;
   }
 
-  // Renderiza el formulario de registro
   return (
-
-    <div className='flex flex-col lg:flex-row w-full h-screen items-center lg:items-start'>
-      <div className='w-full lg:w-1/2 h-full flex flex-col items-center lg:items-start'>
-        <div className='absolute top-[25%] lg:top-[25%] left-0 lg:left-[10%] flex flex-col items-center lg:items-start'>
-          <h1 className='text-4xl text-white font-bold my-4 text-center lg:text-left' >Aumenta tus ingresos con tokenautas</h1>
-          <p className='text-xl text-white font-normal text-center lg:text-left'>Comienza ahora y disfruta de pagos instantáneos en tu cuenta bancaria</p>
-        </div>
-        <img src={fondoAutenticacion} alt="Fondo de autenticación" className='w-full h-full object-cover' />
+    <div className='flex flex-col lg:flex-row items-center justify-center h-screen w-screen'>
+    <div className='w-full lg:w-1/2 h-screen bg-center bg-cover flex items-center justify-center' style={{ backgroundImage: `url(${fondoAutenticacion})` }}>
+      <div className='text-center lg:text-left p-8 lg:p-0 lg:m-24'>
+        <h1 className='text-4xl text-white font-bold mb-4'>Aumenta tus ingresos con tokenautas</h1>
+        <p className='text-xl text-white'>Comienza ahora y disfruta de pagos instantáneos en tu cuenta bancaria</p>
       </div>
-      
-      <div className='w-full lg:w-1/2 h-full bg-[#f5f5f5] flex flex-col p-4 lg:p-20 justify-between'>
-        <h1 className='text-xl text-[#060606] font-semibold text-center'> Disfruta de nuestra plataforma intuitiva</h1>
-        <div className='w-full flex flex-col max-w-[550px] mx-auto'>
-          <div className='w-full flex flex-col mb-2'>
-            <h3 className='text-2xl font-semibold mb-4 text-center'>Registrarse</h3>
-            <p className='text-base mb-2 text-center'>¡Aqui podras registrarte!</p>
-          </div>
-        </div>
-        <div className='w-full flex flex-col'>
-      <input 
-          type="text"
-          placeholder='Alias o Nombre de Usuario'
-          className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none'
-          value={username}
+    </div>
+    <div className='w-full lg:w-1/2 h-screen flex flex-col items-center justify-center bg-white'>
+      <div className='w-full max-w-md p-8'>
+        <h2 className='text-3xl font-bold text-center mb-8'>Registrarse</h2>
+          <div className='flex flex-col space-y-4'>
+            <input 
+              type="text"
+              placeholder='Alias o Nombre de Usuario'
+              className='w-full px-4 py-2 border rounded-md text-lg'
+              value={username}
           onChange={(e) => setUsername(e.target.value)}
-        />
-        <input 
-          type="password"
-          placeholder='Contraseña'
-          className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none'
-          value={password}
+            />
+            <input 
+             type="password"
+             placeholder='Contraseña'
+              className='w-full px-4 py-2 border rounded-md text-lg'
+              value={password}
           onChange={(e) => setPassword(e.target.value)}
-        />
-        </div>
-        <div className='w-full flex items-center justify-between'>
-          <div className='flex items-center'> 
-            <input type="checkbox" className='w-4 h-4 mr-2' />
-            <p className='text-sm'>Recordar siempre</p>
+            />
+            <div className='flex items-center justify-between'>
+              <label className='flex items-center space-x-2'>
+                <input type="checkbox" className='form-checkbox' />
+                <span className='text-sm'>Recordar siempre</span>
+              </label>
+              <a href="#" className='text-sm text-blue-600 hover:underline'>¿Olvidaste tu contraseña?</a>
+            </div>
+            <button 
+            onClick={handleRegister} 
+              className='w-full py-2 mt-4 bg-black text-white rounded-md text-lg'
+            > 
+              Registrarse 
+            </button>
+            <button 
+              className='w-full py-2 mt-4 text-black border border-black rounded-md text-lg'
+            > 
+              Ingesar 
+            </button>
+            <div className='relative flex items-center justify-center mt-4'>
+            <div className='absolute w-full border-t border-gray-300'></div>
+            <div className='relative z-10 px-4 bg-white text-xs lg:text-sm'>o</div>
           </div>
-          <p className='text-sm font-medium whitespace-nowrap cursor-pointer underline underline-offset-2'>Olvidaste tu contraseña?</p>
-        </div>
-        <div className='w-full flex flex-col my-4'>
-        {/*   <button className='w-full text-[#060606] my-2 bg-white border-2 border-black rounded-md p-4 text-center flex items-center justify-center'> Registrarse </button>*/} 
-        <button 
-        onClick={handleRegister} 
-        className='w-full text-white my-2 bg-[#060606] rounded-md p-4 text-center flex items-center justify-center cursor-pointer'
-      > 
-        Registrarse 
-      </button>
+            <button 
+              className='w-full py-2 mt-4 text-black rounded-md text-lg flex items-center justify-center border border-gray-300'
+            >
+           <img src={GOOGLE_ICON} alt="Google" style={{ height: '20px', width: '20px', marginRight: '10px' }} />
 
-        
-        </div>
-        <div className='w-full flex items-center justify-center relative py-2'>
-          <div className='w-full h-[1px] bg-black/40'></div>
-          <p className='text-lg absolute -top-3 text-black/80 bg-[#f5f5f5] px-2'> o </p>
-        </div>
-        <button className='w-full text-[#060606] my-2 bg-white border-2 border-black/40 rounded-md p-4 text-center flex items-center justify-center cursor-pointer'>
-          <img src={GOOGLE_ICON} width={25} alt="Google" className='h-6 mr-2'/> Registrate con Google 
-        </button>
-        <div className='w-full flex items-center justify-center'>
-          <p className='text-sm font-normal text-[#060606]'>Ya tienes una cuenta? <span className='font-semibold underline underline-offset-2 cursor-pointer'>Inicia sesion aquí!</span> </p>
+ Registrate con Google
+            </button>
+          </div>
+          <p className='mt-4 text-center text-sm'>
+            ¿Ya tienes cuenta? 
+            <a href="#" className='text-blue-600 hover:underline'> ¡Inicia Sesion aquí!</a>
+          </p>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default Register;

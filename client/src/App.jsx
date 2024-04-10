@@ -8,7 +8,10 @@ import './App.css';
 import HomePage from './routes/HomePage';
 import LoginPage from './routes/LoginPage';
 import RegisterPage from './routes/RegisterPage';
-import DashboardUser from './routes/DashboardUserPage';
+import Menu from './components/Dashboard/Menu/Menu.jsx';
+import Container from './components/Dashboard/Container/Container.jsx';
+import ChaturbatePage from './routes/ChaturbatePage.jsx';
+import BitcoinPage from './routes/BitcoinPage.jsx';
 
 // Importa el componente ProtectedRoute
 import ProtectedRoute from './components/Autenticacion/Login/ProtectedRoute.jsx'; // Ajusta la ruta de importación según tu estructura de directorios
@@ -20,10 +23,20 @@ function App() {
         <Route path='/' element={<HomePage/>} />
         <Route path='/login' element={<LoginPage/>} />
         <Route path='/register' element={<RegisterPage/>} />
-        {/* Protege la ruta /dashboard */}
+        <Route path='/chaturbate' element={<ChaturbatePage/>} />
+        {/* Protege la ruta /bitcoin con ProtectedRoute */}
+        <Route path='/bitcoin' element={
+          <ProtectedRoute>
+            <BitcoinPage/>
+          </ProtectedRoute>
+        } />
+        {/* Protege la ruta /dashboard con ProtectedRoute */}
         <Route path='/dashboard' element={
           <ProtectedRoute>
-            <DashboardUser/>
+            <>
+              <Menu/>
+              <Container/>
+            </>
           </ProtectedRoute>
         } />
       </Routes>

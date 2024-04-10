@@ -1,4 +1,4 @@
-// ProtectedRoute.js
+// src/components/Autenticacion/Login/ProtectedRoute.js
 
 import React from 'react';
 import { Navigate } from 'react-router-dom';

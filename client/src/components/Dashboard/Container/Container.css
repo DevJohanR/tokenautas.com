@@ -1,0 +1,173 @@
+.container {
+    width: calc(100% - 100px);
+    padding: 20px;
+    padding-top: 30px;
+  }
+  
+  .topContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   padding-bottom: 10px;
+    padding-top: 10px;
+  }
+  
+  .topContainer .inputBox {
+    width: 350px;
+    height: 45px;
+    position: relative;
+  }
+  
+  .topContainer .inputBox input {
+    width: 100%;
+    height: 100%;
+    background: #19162c;
+    border: none;
+    outline: none;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
+    color: #d0cfd4;
+    padding: 0px 40px;
+    font-size: 16px;
+    border-radius: 6px;
+  }
+  
+  .topContainer .inputBox input::placeholder {
+    color: #757380;
+  }
+  
+  .topContainer .inputBox i {
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #757380;
+    font-size: 20px;
+    width: 40px;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+  }
+  
+   .topContainer .profileContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #d0cfd4;
+    position: relative;
+    
+    width: 71%;
+  }
+  
+  .topContainer .profileContainer .profileIcon {
+    width: 40px;
+    height: 40px;
+    background: #19162c;
+    border-radius: 6px;
+    text-align: center;
+    line-height: 40px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
+    font-size: 18px;
+    position: relative;
+  }
+  
+   .topContainer .profileContainer .profileIcon::before {
+    position: absolute;
+    content: "";
+    top: 5px;
+    right: 10px;
+    width: 8px;
+    height: 8px;
+    background: #b1147d;
+    border-radius: 50%;
+  }
+  
+  .topContainer .profileContainer .profileImage {
+    width: 220px;
+    height: 130px;
+    
+    margin: 0px 10px;
+    right: 0;
+    overflow: hidden;
+    background-size: contain;
+    position: absolute;
+
+    background-repeat: no-repeat;
+    /* Asumiendo que vas a establecer la imagen de fondo en línea, no agregamos la URL aquí */
+  }
+  
+  .topContainer .profileContainer .profileName {
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  
+ .topContainer .profileContainer .menuChevron {
+    cursor: pointer;
+    font-size: 12px;
+    margin: 0px 10px;
+  }
+  
+  .topContainer .profileContainer .menuChevron:hover {
+    transition: transform 0.5s ease;
+  }
+  
+  .topContainer .profileContainer .menuContainer {
+    position: absolute;
+    right: 10px;
+    top: 50px;
+    background: #19162c;
+    border-radius: 10px;
+    width: 180px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
+    z-index: 1;
+    transform: translateX(300px);
+    transition: transform 0.3s cubic-bezier(0.17, 0.81, 0.38, 1.39);
+  }
+  
+  .topContainer .profileContainer .menuContainer:after {
+    position: absolute;
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: #19162c;
+    top: -5px;
+    right: 14px;
+    transform: rotate(45deg);
+  }
+  
+  .topContainer .profileContainer .menuContainer ul {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .topContainer .profileContainer .menuContainer ul li {
+    list-style: none;
+    margin: 5px 0;
+    width: 100%;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: #757380;
+    text-align: left;
+  }
+  
+  .topContainer .profileContainer .menuContainer ul li:hover {
+    background: #121026;
+    transition: 0.3s;
+    color: #f1f1f1;
+  }
+  
+  @media screen and (max-width: 525px) {
+    .container {
+      width: calc(100% - 68px);
+    }
+  
+    .topContainer .inputBox {
+      width: 120px;
+      z-index: 101;
+    }
+  
+    .topContainer .inputBox input:focus {
+      width: 320px;
+      transition: width 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+  }
+  

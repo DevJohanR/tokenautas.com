@@ -1,9 +1,10 @@
+//src/routes/BitcoinPage.jsx
 import React from 'react'
-
+import Bitcoin from '../components/Plataformas/Bitcoin/Bitcoin'
 const BitcoinPage = () => {
   return (
     <div>
-  <h1>SOY BITCOIN</h1>
+  <Bitcoin/>
     </div>
   )
 }

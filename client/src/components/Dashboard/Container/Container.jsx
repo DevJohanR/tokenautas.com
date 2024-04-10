@@ -1,9 +1,14 @@
 import React from 'react'
+import './Container.css'
+
+import TopContainer from '../TopContainer/TopContainer'
+import MainContainer from '../MainContainer/MainContainer'
 
 const Container = () => {
   return (
-    <div>
-        <h1>Container</h1>
+    <div className='container'>
+      <TopContainer/>
+      <MainContainer/>
     </div>
   )
 }

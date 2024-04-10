@@ -1,0 +1,67 @@
+.menu {
+  width: 100px;
+  height: 100%;
+  background: #19162c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  position: sticky;
+  top: 0;
+}
+
+.logo {
+  width: 6em;
+  margin-top: 30px; /* Adjusted from padding to margin for better control */
+  align-self: center; /* Ensure logo is centered */
+}
+
+.mainMenu {
+  margin-top: 30px;
+  width: 100%;
+  list-style: none;
+  padding: 0; /* Remove padding to ensure alignment */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.li {
+  margin: 20px 0;
+  position: relative;
+  color: #8c8a95;
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Center the icons horizontally */
+}
+
+.a {
+  font-size: 24px;
+  color: #8c8a95;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.a::before {
+  content: "";
+  display: block;
+  width: 20px; /* Default width to match active state */
+  height: 20px;
+  background: transparent; /* Hide by default using transparent color */
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
+
+
+
+.lastMenu {
+  margin-top: auto;
+}
+
+@media only screen and (max-width: 525px) {
+  .menu {
+    min-width: 68px;
+    width: 68px;
+  }
+}
