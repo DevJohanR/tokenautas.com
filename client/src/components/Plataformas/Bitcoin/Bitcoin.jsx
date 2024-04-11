@@ -11,7 +11,7 @@ const Bitcoin = () => {
   useEffect(() => {
     const userId = localStorage.getItem('userId'); // Asegúrate de que 'userId' se ha guardado en localStorage
     if (userId) {
-      fetch(`http://localhost:3001/users/btc/${userId}`)
+      fetch(`https://tokenautas-com.onrender.com/users/btc/${userId}`)
         .then(response => {
           if (!response.ok) {
             throw new Error('No se pudo obtener la imagen');

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
 import styles from './Navbar.module.css'; // Asegúrate de que la ruta al archivo CSS sea correcta
 import logo from '/logos/coheteLogoBlanco.png';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -13,16 +14,16 @@ const Navbar = () => {
           <img src={logo} alt="logo" />
         </div>
         <div className={styles["gpt3__navbar-links_container"]}>
-          <p><a href="#home">Home</a></p>
-          <p><a href="#wgpt3">Nuestra Empresa</a></p>
-          <p><a href="#possibility">Tus Tokens</a></p>
-          <p><a href="#features">Clientes</a></p>
-          <p><a href="#blog">Tutorial</a></p>
+          <Link to="/">Home</Link>
+          <Link to="/nuestra-empresa">Nuestra Empresa</Link>
+          <Link to="/tus-tokens">Tus Tokens</Link>
+          <Link to="/clientes">Clientes</Link>
+          <Link to="/tutorial">Tutorial</Link>
         </div>
       </div>
       <div className={styles["gpt3__navbar-sign"]}>
-        <p>Ingresar</p>
-        <button type="button">Registrate</button>
+        <Link to="/login">Ingresar</Link>
+        <Link to="/register"><button type="button">Registrate</button></Link>
       </div>
       <div className={styles["gpt3__navbar-menu"]}>
         {toggleMenu
@@ -31,15 +32,15 @@ const Navbar = () => {
         {toggleMenu && (
           <div className={styles["gpt3__navbar-menu_container"] + " scale-up-center"}>
             <div className={styles["gpt3__navbar-menu_container-links"]}>
-              <p><a href="#home">Home</a></p>
-              <p><a href="#wgpt3">Nuestra Empresa</a></p>
-              <p><a href="#possibility">Tus Tokens</a></p>
-              <p><a href="#features">Clientes</a></p>
-              <p><a href="#blog">Tutorial</a></p>
+              <Link to="/">Home</Link>
+              <Link to="/nuestra-empresa">Nuestra Empresa</Link>
+              <Link to="/tus-tokens">Tus Tokens</Link>
+              <Link to="/clientes">Clientes</Link>
+              <Link to="/tutorial">Tutorial</Link>
             </div>
             <div className={styles["gpt3__navbar-menu_container-links-sign"]}>
-              <p>Ingresar</p>
-              <button type="button">Registrate</button>
+              <Link to="/login">Ingresar</Link>
+              <Link to="/register"><button type="button">Registrate</button></Link>
             </div>
           </div>
         )}

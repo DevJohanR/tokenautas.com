@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import fondoAutenticacion from '/fondos/loginTokenautas.webp';
 import GOOGLE_ICON from "/logos/google.svg";
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -11,7 +12,7 @@ const Login = () => {
   const handleLogin = async () => {
     try {
       console.log('Intentando iniciar sesión con:', email, password); // Agregar para depuración
-      const response = await fetch('http://localhost:3001/users/login', {
+      const response = await fetch('https://tokenautas-com.onrender.com/users/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -78,11 +79,12 @@ const Login = () => {
             > 
               Ingresar 
             </button>
-            <button 
+            
+            <Link to='/register' > <button 
               className='w-full py-2 mt-4 text-black border border-black rounded-md text-lg'
             > 
               Registrarse 
-            </button>
+            </button></Link>
             <div className='relative flex items-center justify-center mt-4'>
             <div className='absolute w-full border-t border-gray-300'></div>
             <div className='relative z-10 px-4 bg-white text-xs lg:text-sm'>o</div>

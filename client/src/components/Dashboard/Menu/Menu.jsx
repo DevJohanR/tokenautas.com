@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import styles from './Menu.module.css'; // Importa el CSS como un módulo
 import Logo from '/logos/coheteLogoBlanco.png';
+import { Link } from 'react-router-dom'
 
 import {
     FaDelicious,
@@ -33,7 +34,8 @@ const Menu = () => {
        <img src={Logo} alt="Logo" className={styles.logo} />
 
             <ul id='mainMenu'>
-                <Icon icon={<FaDelicious />} />
+                
+            <Link to='/bitcoin'><Icon icon={<FaDelicious />} /></Link>
                 <Icon icon={<FaShoppingCart />} />
                 <Icon icon={<FaWallet />} />
                 <Icon icon={<FaChartLine />} />

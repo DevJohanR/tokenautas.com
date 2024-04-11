@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom'
+
 
 // Importa las imágenes y logos que necesitas
 import fondoAutenticacion from '/fondos/astronautaRegistro.webp';
@@ -38,7 +40,7 @@ if (!username.trim() || !password.trim()) {
 //END VALIDACIONES
 
     try {
-      const response = await fetch('http://localhost:3001/users/register', {
+      const response = await fetch('https://tokenautas-com.onrender.com/users/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -115,11 +117,11 @@ if (!username.trim() || !password.trim()) {
             > 
               Registrarse 
             </button>
-            <button 
+            <Link to='/login' ><button 
               className='w-full py-2 mt-4 text-black border border-black rounded-md text-lg'
             > 
               Ingesar 
-            </button>
+            </button> </Link>
             <div className='relative flex items-center justify-center mt-4'>
             <div className='absolute w-full border-t border-gray-300'></div>
             <div className='relative z-10 px-4 bg-white text-xs lg:text-sm'>o</div>
