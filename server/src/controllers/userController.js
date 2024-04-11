@@ -110,15 +110,12 @@ const getUserImagenBTC = (req, res, next) => {
 
     if (result.length > 0) {
       const { username, imagenbtc } = result[0];
-      // Asegúrate de devolver la URL completa de la imagen
-      const imagenbtcUrl = `http://localhost:3001/assets/${imagenbtc}`;
-      res.json({ username, imagenbtc: imagenbtcUrl });
+      res.json({ username, imagenbtc });
     } else {
       res.status(404).json({ message: 'Usuario no encontrado' });
     }
   });
 };
-
 
 
 const updateUserPassword = (req, res, next) => {
