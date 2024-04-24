@@ -10,33 +10,39 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      console.log('Intentando iniciar sesión con:', email, password); // Agregar para depuración
       const response = await fetch('http://localhost:3001/users/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          username: email,
-          password: password,
+          username: email, // asegúrate de que 'email' es el estado o variable que contiene el email del usuario
+          password: password, // y 'password' es el estado o variable que contiene la contraseña
         }),
       });
-  
-      console.log('Respuesta recibida:', response); // Agregar para depuración
   
       if (response.ok) {
         const data = await response.json();
         console.log('Login exitoso:', data);
-        localStorage.setItem('isAuthenticated', 'true'); // Almacenar el estado de autenticación
-        localStorage.setItem('username', data.username); // Almacenar el nombre de usuario recibido
+        // Almacena en localStorage el estado de autenticación y el userId recibido del backend
+        localStorage.setItem('isAuthenticated', 'true');
+        localStorage.setItem('userId', data.userId);
+        // Opcional: Guardar el nombre de usuario si vas a usarlo más tarde
+        localStorage.setItem('username', data.username);
+        // Redirecciona al usuario al dashboard o a la ruta que desees después del login exitoso
         navigate('/dashboard');
       } else {
-        console.log('Error en el login:', response.statusText);
+        // Aquí deberías manejar los errores, por ejemplo mostrando un mensaje al usuario
+        // Podrías usar response.json() para obtener más detalles si tu backend envía mensajes de error en el cuerpo de la respuesta
+        const errorData = await response.json();
+        console.log('Error en el login:', errorData.message);
       }
     } catch (error) {
+      // Aquí capturas errores de la red o problemas de conexión con el servidor
       console.error('Error al conectar con el servidor:', error);
     }
   };
+  
   
 
   return (
