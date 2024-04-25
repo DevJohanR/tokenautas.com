@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
+import { Link } from 'react-router-dom';
 import styles from './Navbar.module.css'; // Asegúrate de que la ruta al archivo CSS sea correcta
 import logo from '/logos/coheteLogoBlanco.png';
 
@@ -21,8 +22,15 @@ const Navbar = () => {
         </div>
       </div>
       <div className={styles["gpt3__navbar-sign"]}>
+        <Link to='/login'>
         <p>Ingresar</p>
+        </Link>
+        <Link to='/register'>
         <button type="button">Registrate</button>
+        </Link>
+        
+        
+       
       </div>
       <div className={styles["gpt3__navbar-menu"]}>
         {toggleMenu

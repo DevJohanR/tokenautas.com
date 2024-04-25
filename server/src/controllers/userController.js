@@ -1,25 +1,18 @@
 //server/src/controllers/userController.js
-const db = require('../config/database');
-const uuid = require('uuid');
+const pool = require('../config/database');  // Asegúrate de que se importa el pool y no la conexión directa
+
 
 const { seleccionarImagenYPalabra } = require('../utils/helpers.js');
 
 
 
-const login = (req, res, next) => {
+const login = async (req, res, next) => {
   const { username, password } = req.body;
-  const userQuery = 'SELECT * FROM usuarios WHERE username = ?';
-
-  db.query(userQuery, [username], (err, users) => {
-    if (err) {
-      return next(err);
-    }
-
+  try {
+    const [users] = await pool.query('SELECT * FROM usuarios WHERE username = ?', [username]);
     if (users.length > 0) {
       const user = users[0];
-
       if (password === user.password) {
-        // Asegúrate de incluir el user_id en la respuesta
         res.json({ message: 'Login exitoso', username: user.username, userId: user.user_id });
       } else {
         res.status(401).json({ message: 'Credenciales incorrectas' });
@@ -27,9 +20,10 @@ const login = (req, res, next) => {
     } else {
       res.status(401).send('Usuario no encontrado');
     }
-  });
+  } catch (err) {
+    next(err);
+  }
 };
-
 
 
 
@@ -40,8 +34,8 @@ const registerUser = async (req, res, next) => {
 
   try {
     // Seleccionar imagen y palabra secreta aleatoria para cada tipo
-    const [imagenUsdt, palabraSecretaUsdt] = await seleccionarImagenYPalabra('usdt', db);
-    const [imagenBtc, palabraSecretaBtc] = await seleccionarImagenYPalabra('btc', db);
+    const [imagenUsdt, palabraSecretaUsdt] = await seleccionarImagenYPalabra('usdt', pool);
+    const [imagenBtc, palabraSecretaBtc] = await seleccionarImagenYPalabra('btc', pool);
 
     // Verificar si se obtuvieron imagen y palabra secreta
     if (!imagenUsdt || !palabraSecretaUsdt || !imagenBtc || !palabraSecretaBtc) {
@@ -55,11 +49,14 @@ const registerUser = async (req, res, next) => {
     `;
 
     // Registrar al usuario en la base de datos
-    await db.promise().query(sqlUsuario, [username, password, palabraSecretaUsdt, palabraSecretaBtc, imagenUsdt, imagenBtc]);
+    await pool.query(sqlUsuario, [username, password, palabraSecretaUsdt, palabraSecretaBtc, imagenUsdt, imagenBtc]);
 
+    // Enviar respuesta de éxito
     res.status(201).send('Usuario registrado exitosamente');
   } catch (err) {
     // Manejar errores aquí
+    console.error('Error al registrar usuario:', err);
+    res.status(500).send('Error al registrar el usuario');
     next(err);
   }
 };
@@ -74,42 +71,37 @@ const registerUser = async (req, res, next) => {
 
 
 
-const getUserImagenUSDT = (req, res, next) => {
-  const { userId } = req.params; // Asegúrate de que 'userId' coincide con el parámetro que defines en tu ruta
-  const userDetailsQuery = 'SELECT username, imagenusdt FROM usuarios WHERE user_id = ?';
-
-  db.query(userDetailsQuery, [userId], (err, result) => {
-    if (err) {
-      return next(err);
-    }
-
+const getUserImagenUSDT = async (req, res, next) => {
+  const userId = req.params.userId;
+  try {
+    const [result] = await pool.query('SELECT username, imagenusdt FROM usuarios WHERE user_id = ?', [userId]);
     if (result.length > 0) {
       const { username, imagenusdt } = result[0];
       res.json({ username, imagenusdt });
     } else {
       res.status(404).json({ message: 'Usuario no encontrado' });
     }
-  });
+  } catch (err) {
+    next(err);
+  }
 };
 
 
 
-const getUserImagenBTC = (req, res, next) => {
-  const { userId } = req.params;
-  const userDetailsQuery = 'SELECT username, imagenbtc FROM usuarios WHERE user_id = ?';
 
-  db.query(userDetailsQuery, [userId], (err, result) => {
-    if (err) {
-      return next(err);
-    }
-
+const getUserImagenBTC = async (req, res, next) => {
+  const userId = req.params.userId;
+  try {
+    const [result] = await pool.query('SELECT username, imagenbtc FROM usuarios WHERE user_id = ?', [userId]);
     if (result.length > 0) {
       const { username, imagenbtc } = result[0];
       res.json({ username, imagenbtc });
     } else {
       res.status(404).json({ message: 'Usuario no encontrado' });
     }
-  });
+  } catch (err) {
+    next(err);
+  }
 };
 
 
