@@ -1,11 +1,20 @@
 import React from "react";
 import TarjetaCripto from "../Billetera/Billetera";
+import styles from './MainRightTopCard.module.css'; // Make sure this matches the name of your CSS file
+
 
 function MainRightTopCard({ criptoData }) {
   return (
     <div className="topCard">
       <div className="topCard_name">
-        <h2>Billeteras</h2>
+        <div className={styles.texto}>
+        <h2 className={styles.billeterasTop} >BILLETERAS</h2>
+        <p className={styles.billeterasDescripcion}>
+          Utilizalas para recibir regalos de tus <strong>tippers.</strong> Enviales el codigo QR e informales que deseas recibir criptomonedas,  <span className={styles.tutorialCriptomonedas} ><a href="">¡Mira el tutorial de criptomonedas aqui!</a></span>
+        </p>
+        
+        </div>
+       
    
       </div>
       <div className="earning">

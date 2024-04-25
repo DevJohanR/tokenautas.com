@@ -15,6 +15,7 @@ function MainRightBottomCard() {
             <div className="topSellerImg">
               <img src={seller?.imgSrc} alt="" />
             </div>
+            
             <div className="topSellerName">
               <p>
                 {seller?.seller_name} <span>{seller?.username}</span>

@@ -144,6 +144,17 @@ margin-left: 10px;
     margin: 15px 10px;
    }
 
+   @media (min-width:1367px){
+    .mainContainer .left .cards main .card_main{
+      background: #252041;
+      border-radius: 0.5em;
+      overflow-y: hidden;
+      max-width: 399px;
+      padding-bottom: 20px;
+      margin: 15px 10px;
+     }
+   }
+
    .mainContainer .left .cards main .card_main img{
   max-width: 100%;
   object-fit: cover;

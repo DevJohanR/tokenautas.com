@@ -36,3 +36,55 @@
     margin: 0px 5px;
   }
   
+
+  .mainContainer {
+    width: calc(100vw - 120px); 
+    
+    
+
+
+    
+}
+
+.bottomRightCard{
+    
+   display: none;
+}
+
+.topCard{
+ height:  calc(100vh - 120px);
+ }
+
+@media  (min-width:1367px) {
+
+  .topContainer{
+    width: calc(100vw - 120px); 
+  }
+
+
+  .topCard{
+    max-width: calc(20vw); 
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    gap: 130px;
+
+  }
+  
+  .mainContainer {
+    width: calc(109vw - 120px); 
+    
+}
+
+.earning{
+ 
+  transform: scale(1.4);
+}
+
+
+
+}
+
+
+
+

@@ -1,0 +1,52 @@
+.billeterasTop{
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+
+.billeterasDescripcion{
+    color:  white;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.tutorialCriptomonedas{
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+
+}
+
+.tutorialCriptomonedas a{
+  font-weight: bolder;
+    
+}
+
+.texto{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media (min-width:1367px){
+    .billeterasTop{
+        font-weight: bold;
+        font-size: 2.9rem;
+    }
+
+    .billeterasDescripcion{
+        color:  white;
+        max-width: 480px;
+        font-size: 20px;
+    }
+
+    .texto{
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
+    }
+}
