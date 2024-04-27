@@ -58,12 +58,12 @@
 @media  (min-width:1367px) {
 
   .topContainer{
-    width: calc(100vw - 120px); 
+    width: calc(100vw - 140px);/*Mover Logo*/ 
   }
 
 
   .topCard{
-    max-width: calc(20vw); 
+    max-width: calc(20vw - 20px); /*Manipular div principal donde estan las billeteras*/
     display: flex;
     flex-direction: column;
     justify-content: stretch;

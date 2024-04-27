@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import './MainContainer.css';
+import axios from 'axios';
+
 
 import Banner from "/fondos/BannerDash.webp";
 import CardMain from "../CardMain/CardMain";
@@ -32,6 +34,41 @@ const criptoData = [
 ];
 
 function MainContainer() {
+
+  const [username, setUsername] = useState('');
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    // Suponiendo que guardas el userId en localStorage después del login
+    const userId = localStorage.getItem('userId');
+
+    if (!userId) {
+      setError('Usuario no ha iniciado sesión');
+      setLoading(false);
+      return;
+    }
+
+    setLoading(true);
+    axios.get(`http://localhost:3001/users/${userId}`)
+      .then((response) => {
+        // Suponiendo que tu backend devuelve un objeto de usuario con una propiedad 'username'
+        setUsername(response.data.username);
+        setError('');
+      })
+      .catch((err) => {
+        console.error('Error al obtener los datos del usuario:', err);
+        setError('No se pudo cargar la información del usuario.');
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) return <div>Cargando perfil del usuario...</div>;
+  if (error) return <div>Error: {error}</div>;
+
+
   return (
     <div className="mainContainer">
        <div className="left">
@@ -44,9 +81,10 @@ function MainContainer() {
           }}>
 
         <div className="textContainer">
-          <h1>MILE</h1>
+        <h1>TU SALDO</h1>
+
           <h2>$ 1.000.000</h2>
-          <p>mile2017.dasma@gmail.com</p>
+          <p>{username}</p>
           <div className="bid">
             <a href="#" className="button1">
                 Depositar
