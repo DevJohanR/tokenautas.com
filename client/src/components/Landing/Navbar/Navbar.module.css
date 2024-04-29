@@ -3,7 +3,8 @@
     justify-content: space-between;
     align-items: center;
     background: #121026;
-    padding: 2rem 6rem;
+    padding: 2rem 1.5rem;
+    width: 100vw;
 }
 
 
@@ -20,7 +21,7 @@
 }
 
 .gpt3__navbar-links_logo img {
-    width: 62.56px;
+    width: 99.56px;
     height: auto;
 }
 
@@ -147,9 +148,20 @@
 
     .gpt3__navbar-menu_container {
         top: 20px;
+        background-color:#121026;
+        border: solid #b1147d 1px ;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
     }
 
     .gpt3__navbar-menu_container-links-sign {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
     }
 }

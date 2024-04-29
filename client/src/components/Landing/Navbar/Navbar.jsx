@@ -40,14 +40,18 @@ const Navbar = () => {
           <div className={styles["gpt3__navbar-menu_container"] + " scale-up-center"}>
             <div className={styles["gpt3__navbar-menu_container-links"]}>
               <p><a href="#home">Home</a></p>
-              <p><a href="#wgpt3">Nuestra Empresa</a></p>
+              <p><a href="#wgpt3">Nosotros</a></p>
               <p><a href="#possibility">Tus Tokens</a></p>
               <p><a href="#features">Clientes</a></p>
               <p><a href="#blog">Tutorial</a></p>
             </div>
             <div className={styles["gpt3__navbar-menu_container-links-sign"]}>
-              <p>Ingresar</p>
-              <button type="button">Registrate</button>
+            <Link to='/login'>
+        <p>Ingresar</p>
+        </Link>
+        <Link to='/register'>
+        <button type="button">Registrate</button>
+        </Link>
             </div>
           </div>
         )}

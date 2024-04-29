@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: row;
     background: #121026;
+    padding: 35 px;
 }
 
 .gpt3__header-content {
@@ -10,9 +11,11 @@
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
-
+    
     margin-right: 5rem;
 }
+
+
 
 .gpt3__header-content h1 {
     /* Your existing styles */
@@ -26,6 +29,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block; /* This makes the gradient apply to text only and not the entire block */
+    
 }
 .gpt3__header-content p {
     font-family: var(--font-family);
@@ -116,9 +120,12 @@
 }
 
 .gpt3__header-image img {
-    width: 100%;
-    height: 100%;
+    width: auto;  /* or a specific width, for example 500px */
+    height: auto;  /* or a specific height, for example 300px */
+    max-width: 100%;  /* to ensure that it does not overflow its container */
+    max-height: 100%;  /* to ensure that it maintains its aspect ratio */
 }
+
 
 @media screen and (max-width: 1050px) {
     .gpt3__header {

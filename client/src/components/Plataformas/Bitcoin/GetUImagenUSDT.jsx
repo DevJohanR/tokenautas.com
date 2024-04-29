@@ -8,7 +8,7 @@ const GetUImagenUSDT = ({ userId }) => {
 
   useEffect(() => {
     setLoading(true);
-    axios.get(`http://localhost:3001/users/${userId}`)
+    axios.get(`https://tokenautas-com.onrender.com/users/${userId}`)
       .then((response) => {
         setUser(response.data);
         setError('');
@@ -31,7 +31,7 @@ const GetUImagenUSDT = ({ userId }) => {
       <h1>Perfil de Usuario</h1>
       <p>Nombre de usuario: {user.username}</p>
       {/*https://tokenautas-com.onrender.com */}
-      <img src={`http://localhost:3001/assets/${user.imagenusdt.replace('assets/', '')}`} alt={`${user.username}'s Wallet`} />
+      <img src={`https://tokenautas-com.onrender.com/assets/${user.imagenusdt.replace('assets/', '')}`} alt={`${user.username}'s Wallet`} />
     </div>
   );
 };
