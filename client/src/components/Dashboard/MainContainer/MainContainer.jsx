@@ -36,6 +36,7 @@ const criptoData = [
 function MainContainer() {
 
   const [username, setUsername] = useState('');
+  const [walletBalance, setWalletBalance] = useState('Cargando...');
 
   useEffect(() => {
     // Obtener el userId de alguna forma, podría ser del localStorage o de la sesión del usuario
@@ -46,7 +47,7 @@ function MainContainer() {
       return;
     }
 
-    axios.get(`https://tokenautas-com.onrender.com/users/username/${userId}`)
+    axios.get(`http://localhost:3001/users/username/${userId}`)
       .then(response => {
         setUsername(response.data.username); // Actualiza el estado con el nombre de usuario obtenido
       })
@@ -55,6 +56,26 @@ function MainContainer() {
       });
   }, []);
 
+
+
+
+  useEffect(() => {
+    // Suponemos que el userId está almacenado en localStorage
+    const userId = localStorage.getItem('userId');
+    if (userId) {
+      axios.get(`http://localhost:3001/users/wallet/${userId}`)
+        .then(response => {
+          setWalletBalance(response.data.mi_billetera1);
+        })
+        .catch(error => {
+          console.error('Hubo un error al obtener el balance de la billetera', error);
+          setWalletBalance('Error al cargar');
+        });
+    } else {
+      // Manejar la ausencia de userId, posiblemente mostrando un mensaje o redirigiendo al login
+      setWalletBalance('Usuario no identificado');
+    }
+  }, []);
 
   return (
     <div className="mainContainer">
@@ -70,7 +91,7 @@ function MainContainer() {
         <div className="textContainer">
         <h1>TU SALDO</h1>
 
-          <h2>$ 1.000.000</h2>
+          <h2>{walletBalance}</h2>
           <p>{username}</p>
           <div className="bid">
             <a href="#" className="button1">

@@ -1,14 +1,20 @@
 //server/src/routes/userRoutes.js
 const express = require('express');
 const router = express.Router();
-const { login, registerUser, getUserImagenUSDT, getUserImagenBTC, updateUserPassword, getUsername } = require('../controllers/userController');
+const { login, registerUser, getUserImagenUSDT, getUserImagenBTC, updateUserPassword, getUsername, getWalletBalance } = require('../controllers/userController');
 
 router.post('/login', login);
 router.post('/register', registerUser);
 
+/* START RUTAS PARA RENDERIZAR IMAGENES */
 router.get('/:userId', getUserImagenUSDT);
-router.get('/btc/:userId', getUserImagenBTC);
+router.get('/:userId', getUserImagenBTC);
+router.get('/tether/:userId', getUserImagenUSDT);
+router.get('/btc/:userId',  getUserImagenBTC);
+/* END RUTAS PARA RENDERIZAR IMAGENES */
+
 router.get('/username/:userId', getUsername);
+router.get('/wallet/:userId', getWalletBalance);
 router.put('/updatePassword', updateUserPassword);
 
 

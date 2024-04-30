@@ -1,3 +1,4 @@
+//Tether/GetUImagenUSDT.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -8,7 +9,7 @@ const GetUImagenUSDT = ({ userId }) => {
 
   useEffect(() => {
     setLoading(true);
-    axios.get(`https://tokenautas-com.onrender.com/users/${userId}`)
+    axios.get(`http://localhost:3001/users/${userId}`)
       .then((response) => {
         setUser(response.data);
         setError('');
@@ -28,10 +29,8 @@ const GetUImagenUSDT = ({ userId }) => {
 
   return (
     <div>
-      <h1>Perfil de Usuario</h1>
-      <p>Nombre de usuario: {user.username}</p>
-      {/*https://tokenautas-com.onrender.com */}
-      <img src={`https://tokenautas-com.onrender.com/assets/${user.imagenusdt.replace('assets/', '')}`} alt={`${user.username}'s Wallet`} />
+      {/* Si necesitas un contenedor aquí, puedes mantener el div o quitarlo si no es necesario */}
+      <img src={`http://localhost:3001/assets/${user.imagenusdt.replace('assets/', '')}`} alt="Wallet" />
     </div>
   );
 };

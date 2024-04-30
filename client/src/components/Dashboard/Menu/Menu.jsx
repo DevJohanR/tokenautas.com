@@ -34,10 +34,12 @@ const Menu = () => {
        <img src={Logo} alt="Logo" className={styles.logo} />
 
             <ul id='mainMenu'>
-                <Link to='/bitcoin'>
+                <Link to='/tether'>
                 <Icon icon={<FaDelicious />} />
                 </Link>
+                <Link to='/bitcoin'>
                 <Icon icon={<FaShoppingCart />} />
+                </Link>
                 <Icon icon={<FaWallet />} />
                 <Icon icon={<FaChartLine />} />
                 <Icon icon={<FaRegClock />} />

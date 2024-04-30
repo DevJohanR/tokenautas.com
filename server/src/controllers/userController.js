@@ -61,7 +61,7 @@ const registerUser = async (req, res, next) => {
 };
 
 
-//BTC-USDT
+//USDT
 const getUserImagenUSDT = async (req, res, next) => {
   const userId = req.params.userId;
   try {
@@ -79,7 +79,7 @@ const getUserImagenUSDT = async (req, res, next) => {
 
 
 
-
+//BTC
 const getUserImagenBTC = async (req, res, next) => {
   const userId = req.params.userId;
   try {
@@ -117,6 +117,34 @@ const getUsername = async (req, res, next) => {
 };
 
 
+// Controlador para obtener el valor de mi_billetera1
+const getWalletBalance = async (req, res, next) => {
+  try {
+    const userId = req.params.userId;
+    const queryText = 'SELECT mi_billetera1 FROM usuarios WHERE user_id = ?';
+    const [result] = await pool.query(queryText, [userId]);
+    
+    if (result.length > 0) {
+      let balance = result[0].mi_billetera1;
+      
+      // Si balance es null o vacío, lo establecemos en 0
+      balance = balance || 0;
+
+      // Formateamos el balance para añadir puntos como separadores de miles
+      const formattedBalance = new Intl.NumberFormat('es-ES').format(balance);
+      
+      res.json({ mi_billetera1: formattedBalance });
+    } else {
+      res.status(404).json({ message: 'Usuario no encontrado' });
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+
+
+
+
 
 const updateUserPassword = (req, res, next) => {
   // Agrega aquí tu lógica para actualizar la contr
@@ -128,5 +156,6 @@ module.exports = {
   getUserImagenUSDT,
   getUserImagenBTC, 
   updateUserPassword,
-  getUsername
+  getUsername,
+  getWalletBalance
 };

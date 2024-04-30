@@ -1,12 +1,13 @@
-//src/routes/BitcoinPage.jsx
-import React from 'react'
-import Bitcoin from '../components/Plataformas/Bitcoin/Bitcoin'
+// src/routes/BitcoinPage.jsx
+import React from 'react';
+import Bitcoin from '../components/Plataformas/Bitcoin/Bitcoin';
+
 const BitcoinPage = () => {
   return (
     <div>
-  <Bitcoin/>
+      <Bitcoin />
     </div>
-  )
-}
+  );
+};
 
-export default BitcoinPage
+export default BitcoinPage;
