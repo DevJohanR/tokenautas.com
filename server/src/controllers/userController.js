@@ -143,6 +143,98 @@ const getWalletBalance = async (req, res, next) => {
 };
 
 
+const addBank = async (req, res) => {
+  const { user_id, alias, nombre_banco, tipo_cuenta, titular_cuenta, cedula_titular, numeroCuenta } = req.body;
+  console.log("Recibido para insertar:", req.body);  // Añade esta línea para verificar la entrada
+  try {
+      const [result] = await pool.query('INSERT INTO bancos_usuarios (user_id, alias, nombre_banco, tipo_cuenta, titular_cuenta, cedula_titular, numeroCuenta) VALUES (?, ?, ?, ?, ?, ?, ?)', [user_id, alias, nombre_banco, tipo_cuenta, titular_cuenta, cedula_titular, numeroCuenta]);
+      res.status(201).send({ message: 'Banco registrado con éxito', bankId: result.insertId });
+  } catch (error) {
+      console.error('Error al registrar banco:', error);
+      res.status(500).send({ message: 'Error al registrar banco', error: error.message });
+  }
+};
+
+
+const getBanksByUserId = async (req, res) => {
+  const { userId } = req.params;
+  try {
+      const [banks] = await pool.query('SELECT * FROM bancos_usuarios WHERE user_id = ?', [userId]);
+      res.status(200).json(banks);
+  } catch (error) {
+      console.error('Error al obtener bancos:', error);
+      res.status(500).send({ message: 'Error al obtener bancos' });
+  }
+};
+
+
+
+
+const getUserIdByUsername = async (req, res, next) => {
+  const { username } = req.params;
+  try {
+      const [result] = await pool.query('SELECT user_id FROM usuarios WHERE username = ?', [username]);
+      if (result.length > 0) {
+          res.json({ user_id: result[0].user_id });
+      } else {
+          res.status(404).json({ message: 'Usuario no encontrado' });
+      }
+  } catch (error) {
+      console.error('Error al obtener user_id:', error);
+      res.status(500).json({ message: 'Error interno del servidor' });
+      next(error);
+  }
+};
+
+
+
+const processWithdrawal = async (req, res, next) => {
+  const { user_id, banco_id, valor_retirar, identificador_transaccion, estado } = req.body;
+  
+  
+  const amountToWithdraw = parseFloat(valor_retirar);
+
+  try {
+    
+    const [users] = await pool.query('SELECT mi_billetera1 FROM usuarios WHERE user_id = ?', [user_id]);
+    if (users.length === 0) {
+      return res.status(404).json({ message: 'Usuario no encontrado' });
+    }
+
+    
+    const currentBalance = parseFloat(users[0].mi_billetera1);
+
+  
+    if (currentBalance < amountToWithdraw) {
+      return res.status(400).json({ message: 'Saldo insuficiente' });
+    }
+
+    
+    const newBalance = currentBalance - amountToWithdraw;
+
+    
+    await pool.query('START TRANSACTION');
+
+  
+    const queryText = 'INSERT INTO retiros (user_id, banco_id, valor_retirar, identificador_transaccion, estado) VALUES (?, ?, ?, ?, ?)';
+    await pool.query(queryText, [user_id, banco_id, valor_retirar, identificador_transaccion, estado]);
+
+    
+    await pool.query('UPDATE usuarios SET mi_billetera1 = ? WHERE user_id = ?', [newBalance, user_id]);
+
+  
+    await pool.query('COMMIT');
+
+    res.json({ message: 'Retiro procesado con éxito' });
+  } catch (error) {
+    
+    await pool.query('ROLLBACK');
+    console.error('Error al procesar el retiro:', error);
+    res.status(500).json({ message: 'Error al procesar el retiro' });
+  }
+};
+
+
 
 
 
@@ -157,5 +249,9 @@ module.exports = {
   getUserImagenBTC, 
   updateUserPassword,
   getUsername,
-  getWalletBalance
+  getWalletBalance,
+  addBank,
+    getBanksByUserId,
+    getUserIdByUsername,
+    processWithdrawal
 };

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './MainContainer.css';
 import axios from 'axios';
 
@@ -95,7 +96,7 @@ function MainContainer() {
           <p>{username}</p>
           <div className="bid">
             <a href="#" className="button1">
-                Depositar
+                Retirar
             </a>
             <p>
               <span></span>
@@ -114,7 +115,9 @@ function MainContainer() {
           </div>
 
           <main>
+          <Link to="/chaturbate">
           <CardMain imgSrc={Card1} title={"Chaturbate"} hearts={"+"} />
+          </Link>
           <CardMain imgSrc={Card2} title={"Xvideoscams"} hearts={"+"} />
           <CardMain imgSrc={Card3} title={"Stripchat"} hearts={"+"} />
           <CardMain imgSrc={Card4} title={"Camsoda"} hearts={"+"} />

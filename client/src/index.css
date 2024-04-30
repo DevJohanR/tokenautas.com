@@ -9,6 +9,27 @@
   box-sizing: border-box;
 }
 
+.testPage{
+  display: flex;
+}
+
+.bitcoinPage{
+  display: flex;
+}
+
+.tetherPage{
+  display: flex;
+}
+
+.chaturbatePage{
+  display: flex;
+}
+
+.registrarBancosPage{
+  display: flex;
+}
+
+
 .button1 {
   text-decoration: none;
   font-size: 14px;

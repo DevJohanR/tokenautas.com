@@ -1,8 +1,12 @@
 import React from 'react'
+import Retiros from '../components/Retirar/Retirar'
+
 
 const RetirarPage = () => {
   return (
-    <div>RetirarPage</div>
+    <div>
+      <Retiros/>
+    </div>
   )
 }
 

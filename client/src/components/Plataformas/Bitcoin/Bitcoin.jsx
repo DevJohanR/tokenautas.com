@@ -29,6 +29,7 @@ const Bitcoin = () => {
   }, [navigate]);
 
   return (
+
     <div className='flex flex-col lg:flex-row items-center justify-center h-screen w-screen'>
       <div className='w-full lg:w-1/2 h-screen bg-center bg-cover flex items-center justify-center'>
         {userId && <GetUImagenBTC userId={userId} />}

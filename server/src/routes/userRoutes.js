@@ -1,7 +1,7 @@
 //server/src/routes/userRoutes.js
 const express = require('express');
 const router = express.Router();
-const { login, registerUser, getUserImagenUSDT, getUserImagenBTC, updateUserPassword, getUsername, getWalletBalance } = require('../controllers/userController');
+const { login, registerUser, getUserImagenUSDT, getUserImagenBTC, updateUserPassword, getUsername, getWalletBalance,  addBank, getBanksByUserId, getUserIdByUsername, processWithdrawal } = require('../controllers/userController');
 
 router.post('/login', login);
 router.post('/register', registerUser);
@@ -16,6 +16,16 @@ router.get('/btc/:userId',  getUserImagenBTC);
 router.get('/username/:userId', getUsername);
 router.get('/wallet/:userId', getWalletBalance);
 router.put('/updatePassword', updateUserPassword);
+
+
+router.post('/banks', addBank);
+router.get('/banks/:userId', getBanksByUserId);
+
+
+router.get('/get-user-id/:username', getUserIdByUsername);
+
+router.post('/withdraw', processWithdrawal);
+
 
 
 // Esta línea ha sido eliminada, ya que la configuración de archivos estáticos se ha movido a index.js

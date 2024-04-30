@@ -13,6 +13,9 @@ import Container from './components/Dashboard/Container/Container.jsx';
 import ChaturbatePage from './routes/ChaturbatePage.jsx';
 import TetherPage from './routes/TetherPage.jsx';
 import BitcoinPage from './routes/BitcoinPage.jsx';
+import TestPage from './routes/TestPage.jsx';
+import RegistrarBancosPage from './routes/RegistrarBancosPage.jsx';
+import RetirarPage from './routes/RetirarPage.jsx';
 
 // Importa el componente ProtectedRoute
 import ProtectedRoute from './components/Autenticacion/Login/ProtectedRoute.jsx'; // Ajusta la ruta de importación según tu estructura de directorios
@@ -24,7 +27,9 @@ function App() {
         <Route path='/' element={<HomePage/>} />
         <Route path='/login' element={<LoginPage/>} />
         <Route path='/register' element={<RegisterPage/>} />
-        <Route path='/chaturbate' element={<ChaturbatePage/>} />
+        <Route path='/retirar' element={<RetirarPage/>} />
+     
+        <Route path='/test' element={<TestPage/>} />
       {/* Protege la ruta /bitcoin con ProtectedRoute */}
       <Route path='/bitcoin' element={
           <ProtectedRoute>
@@ -36,6 +41,20 @@ function App() {
         <Route path='/tether' element={
           <ProtectedRoute>
            <TetherPage/>
+          </ProtectedRoute>
+        } />
+
+            {/* Protege la ruta /chaturbate con ProtectedRoute */}
+            <Route path='/chaturbate' element={
+          <ProtectedRoute>
+           <ChaturbatePage/>
+          </ProtectedRoute>
+        } />
+
+              {/* Protege la ruta /registrarBancos con ProtectedRoute */}
+              <Route path='/registrarBancos' element={
+          <ProtectedRoute>
+        <RegistrarBancosPage/>
           </ProtectedRoute>
         } />
         
