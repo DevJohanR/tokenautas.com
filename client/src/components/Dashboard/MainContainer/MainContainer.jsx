@@ -36,37 +36,24 @@ const criptoData = [
 function MainContainer() {
 
   const [username, setUsername] = useState('');
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
 
   useEffect(() => {
-    // Suponiendo que guardas el userId en localStorage después del login
-    const userId = localStorage.getItem('userId');
-
+    // Obtener el userId de alguna forma, podría ser del localStorage o de la sesión del usuario
+    const userId = localStorage.getItem('userId'); // Asegúrate de que 'userId' esté almacenado en el localStorage
     if (!userId) {
-      setError('Usuario no ha iniciado sesión');
-      setLoading(false);
+      // Manejar el error o redirigir al usuario para iniciar sesión
+      console.error('No se encontró el userId');
       return;
     }
 
-    setLoading(true);
-    axios.get(`http://localhost:3001/users/${userId}`)
-      .then((response) => {
-        // Suponiendo que tu backend devuelve un objeto de usuario con una propiedad 'username'
-        setUsername(response.data.username);
-        setError('');
+    axios.get(`https://tokenautas-com.onrender.com/users/username/${userId}`)
+      .then(response => {
+        setUsername(response.data.username); // Actualiza el estado con el nombre de usuario obtenido
       })
-      .catch((err) => {
-        console.error('Error al obtener los datos del usuario:', err);
-        setError('No se pudo cargar la información del usuario.');
-      })
-      .finally(() => {
-        setLoading(false);
+      .catch(error => {
+        console.error('Hubo un error al obtener el nombre de usuario', error);
       });
   }, []);
-
-  if (loading) return <div>Cargando perfil del usuario...</div>;
-  if (error) return <div>Error: {error}</div>;
 
 
   return (

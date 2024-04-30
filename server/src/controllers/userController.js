@@ -1,11 +1,10 @@
 //server/src/controllers/userController.js
-const pool = require('../config/database');  // Asegúrate de que se importa el pool y no la conexión directa
-
+const pool = require('../config/database');
 
 const { seleccionarImagenYPalabra } = require('../utils/helpers.js');
 
 
-
+//LOGIN
 const login = async (req, res, next) => {
   const { username, password } = req.body;
   try {
@@ -24,11 +23,11 @@ const login = async (req, res, next) => {
     next(err);
   }
 };
+//
 
 
 
-
-
+//REGISTER//
 const registerUser = async (req, res, next) => {
   const { username, password } = req.body;
 
@@ -62,15 +61,7 @@ const registerUser = async (req, res, next) => {
 };
 
 
-
-
-
-
-
-
-
-
-
+//BTC-USDT
 const getUserImagenUSDT = async (req, res, next) => {
   const userId = req.params.userId;
   try {
@@ -105,8 +96,30 @@ const getUserImagenBTC = async (req, res, next) => {
 };
 
 
+
+const getUsername = async (req, res, next) => {
+  try {
+    const userId = req.params.userId; // Obtienes el ID del usuario
+    const queryText = 'SELECT username FROM usuarios WHERE user_id = ?';
+    const queryValues = [userId];
+    
+    
+    const [result] = await pool.query(queryText, queryValues);
+    
+    if (result.length > 0) {
+      res.json({ username: result[0].username });
+    } else {
+      res.status(404).json({ message: 'Usuario no encontrado' });
+    }
+  } catch (error) {
+    next(error); // Pasar los errores al manejador de errores de Express
+  }
+};
+
+
+
 const updateUserPassword = (req, res, next) => {
-  // Agrega aquí tu lógica para actualizar la contraseña del usuario
+  // Agrega aquí tu lógica para actualizar la contr
 };
 
 module.exports = {
@@ -114,5 +127,6 @@ module.exports = {
   registerUser,
   getUserImagenUSDT,
   getUserImagenBTC, 
-  updateUserPassword
+  updateUserPassword,
+  getUsername
 };
