@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: row;
     background: #121026;
-    padding: 35 px;
+    padding: 35px;
 }
 
 .gpt3__header-content {
@@ -180,3 +180,48 @@
         line-height: 16px;
     }
 }
+
+
+/* Estilo base para el div que contiene los botones, aplicable a todas las pantallas */
+.buttonActionMobile {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    width: 100%;
+    
+  }
+
+  .buttonActionMobile button{
+    flex: 0.6;
+    width: 100%;
+    min-height: 50px;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+    background: linear-gradient(#ff21bc, #b21783);
+    box-shadow: inset 2px 2px 2px rgba(255, 255, 255, 0.4), inset -5px -10px 10px #b1147d;
+    border: 2px solid #ff21bc;
+    padding: 0 1rem;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  
+  /* Media query para dispositivos móviles */
+  @media (max-width: 550px) {
+    .buttonActionMobile {
+      display: flex;  /* Mostrar en dispositivos móviles */
+    }
+  }
+  
+  /* Media query para pantallas más grandes que móviles */
+  @media (min-width: 551px) {
+    .buttonActionMobile {
+      display: none;  /* Ocultar en pantallas más grandes */
+    }
+  }
+  

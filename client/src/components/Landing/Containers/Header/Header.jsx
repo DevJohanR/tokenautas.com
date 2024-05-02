@@ -1,9 +1,16 @@
 import React from 'react';
+
 import styles from './Header.module.css';
 import people from '/fondos/people.png'
 import ai from '/fondos/imagenHeroPrincipal.png';
 
+
+
+
+
 const Header = () => (
+
+  
   <div className={`${styles.gpt3__header} section__padding`} id="home"> {/* Asumiendo que `section__padding` es global */}
     <div className={styles["gpt3__header-content"]}>
       <h1 className={styles["gradient__text"]}>Vende tus tokens de manera rapida 
@@ -19,7 +26,15 @@ Chaturbate, bongacams, facil y rapido, recibe tu dinero en la cuenta bancaria qu
       <div className={styles["gpt3__header-content__people"]}>
       <img src={people} />
         <p>1,600 modelos registrados a nivel nacional</p>
+      
+
+        <div className={styles.buttonActionMobile} >
+        <button type="button">Ingresar</button>
+        <button type="button">Registrarse</button>
+        
       </div>
+      </div>
+      
     </div>
 
     <div className={styles["gpt3__header-image"]}>
