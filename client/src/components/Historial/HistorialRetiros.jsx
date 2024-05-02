@@ -18,9 +18,16 @@ const HistorialRetiros = () => {
             try {
                 const response = await axios.get(`http://localhost:3001/withdrawals/${userId}`);
                 setRetiros(response.data);
+                setError(null);  // Limpia cualquier error anterior si la petición es exitosa
             } catch (error) {
-                console.error('Error al obtener el historial de retiros:', error);
-                setError(error.message);
+                if (error.response && error.response.status === 404) {
+                    // Establece un mensaje de error específico para el error 404
+                    setError('Aquí se verá el historial de tus retiros cuando realices uno.');
+                } else {
+                    // Manejo de otros errores
+                    console.error('Error al obtener el historial de retiros:', error);
+                    setError('Error al obtener el historial de retiros.');
+                }
             }
         };
 
@@ -47,7 +54,7 @@ const HistorialRetiros = () => {
                     ))}
                 </ul>
             ) : (
-                <p>No hay retiros para mostrar.</p>
+                <p>Aquí se verá el historial de tus retiros cuando realices uno.</p>
             )}
         </div>
     );

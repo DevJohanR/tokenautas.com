@@ -30,7 +30,10 @@
 }
 .retirarPage{
   display: flex;
+  width: 100vw;
 }
+
+
 
 .button1 {
   text-decoration: none;

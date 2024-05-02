@@ -15,6 +15,7 @@ const Retiros = () => {
     });
     const [balance, setBalance] = useState(0);
     const [readOnly, setReadOnly] = useState(false);
+    const [transactionIds, setTransactionIds] = useState(new Set());
 
     useEffect(() => {
         const storedUserId = localStorage.getItem('userId');
@@ -50,8 +51,19 @@ const Retiros = () => {
         setWithdrawalData({ ...withdrawalData, [e.target.name]: e.target.value });
     };
 
+    const preventDuplicateTransaction = () => {
+        if (transactionIds.has(withdrawalData.identificador_transaccion)) {
+            Swal.fire('Error', 'Identificador de transacción duplicado. No se puede procesar el retiro.', 'error');
+            return false;
+        }
+        transactionIds.add(withdrawalData.identificador_transaccion);
+        return true;
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (!preventDuplicateTransaction()) return;
+
         try {
             const response = await axios.post('http://localhost:3001/users/withdraw', withdrawalData);
             if (response.data.message === 'Retiro procesado con éxito') {
