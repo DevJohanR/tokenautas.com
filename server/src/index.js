@@ -2,6 +2,8 @@
 const express = require('express');
 const cors = require('cors');
 const userRoutes = require('./routes/userRoutes');
+const withdrawalsRoutes = require('./routes/withdrawalsRoutes'); // Importa las rutas de retiros
+
 const errorHandler = require('./middleware/errorHandler');
 const path = require('path');
 
@@ -16,6 +18,7 @@ app.use(express.json());
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
 app.use('/users', userRoutes);
+app.use('/withdrawals', withdrawalsRoutes);
 
 // Middleware de manejo de errores global
 app.use(errorHandler);

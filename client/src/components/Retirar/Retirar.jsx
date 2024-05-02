@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { v4 as uuidv4 } from 'uuid';
+import HistorialRetiros from '../Historial/HistorialRetiros';
 
 const Retiros = () => {
     const [banks, setBanks] = useState([]);
@@ -97,32 +98,40 @@ const Retiros = () => {
     };
 
     return (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 bg-gray-800 text-white rounded-lg shadow-lg">
+    <div className="w-full h-full bg-gray-900 text-white">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 py-5">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <form onSubmit={handleSubmit} className="space-y-3 col-span-2">
-                    <input className="bg-gray-700 appearance-none border-none rounded w-full py-2 px-3 text-lg text-white leading-tight focus:outline-none focus:bg-gray-600" type="text" name="banco_id" value={withdrawalData.banco_id} onChange={handleWithdrawalChange} placeholder="Banco a retirar" required readOnly={true} />
-                    <input className="bg-gray-700 appearance-none border-none rounded w-full py-2 px-3 text-lg text-white leading-tight focus:outline-none focus:bg-gray-600" type="text" name="identificador_transaccion" value={withdrawalData.identificador_transaccion} onChange={handleWithdrawalChange} placeholder="Identificador de transacción" required readOnly={true} />
-                    <input className="bg-gray-700 appearance-none border-none rounded w-full py-2 px-3 text-lg text-white leading-tight focus:outline-none focus:bg-gray-600" type="text" name="estado" value={withdrawalData.estado} onChange={handleWithdrawalChange} placeholder="Estado" required readOnly={true} />
-                    <input className="bg-gray-700 appearance-none border-none rounded w-full py-2 px-3 text-lg text-white leading-tight focus:outline-none focus:bg-gray-600" type="text" name="valor_retirar" value={withdrawalData.valor_retirar} onChange={handleWithdrawalChange} placeholder="Valor a retirar" required />
+                    <input className="bg-gray-800 appearance-none border-none rounded w-full py-2 px-3 text-lg leading-tight focus:outline-none focus:bg-gray-700" type="text" name="banco_id" value={withdrawalData.banco_id} onChange={handleWithdrawalChange} placeholder="Banco a retirar" required readOnly={true} />
+                    <input className="bg-gray-800 appearance-none border-none rounded w-full py-2 px-3 text-lg leading-tight focus:outline-none focus:bg-gray-700" type="text" name="identificador_transaccion" value={withdrawalData.identificador_transaccion} onChange={handleWithdrawalChange} placeholder="Identificador de transacción" required readOnly={true} />
+                    <input className="bg-gray-800 appearance-none border-none rounded w-full py-2 px-3 text-lg leading-tight focus:outline-none focus:bg-gray-700" type="text" name="estado" value={withdrawalData.estado} onChange={handleWithdrawalChange} placeholder="Estado" required readOnly={true} />
+                    <input className="bg-gray-800 appearance-none border-none rounded w-full py-2 px-3 text-lg leading-tight focus:outline-none focus:bg-gray-700" type="text" name="valor_retirar" value={withdrawalData.valor_retirar} onChange={handleWithdrawalChange} placeholder="Valor a retirar" required />
                     <div className="flex space-x-3">
-                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Procesar Retiro</button>
+                        <button className="bg-blue-600 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Procesar Retiro</button>
                         <button onClick={handleClear} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">Borrar</button>
                     </div>
                 </form>
-                <div className="bg-gray-900 p-3 rounded-lg col-span-1">
+                <div className="bg-gray-800 p-3 rounded-lg col-span-1">
                     <h3 className="mb-3 font-semibold">Bancos Registrados</h3>
                     <ul>
                         {banks.map((bank, index) => (
                             <li key={index} className="flex justify-between items-center py-2">
                                 <span>{bank.alias} - {bank.nombre_banco} - {bank.tipo_cuenta}</span>
-                                <button onClick={() => selectBank(bank)} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded focus:outline-none focus:shadow-outline">Seleccionar</button>
+                                <button onClick={() => selectBank(bank)} className="bg-blue-600 hover:bg-blue-800 text-white font-bold py-1 px-3 rounded focus:outline-none focus:shadow-outline">Seleccionar</button>
                             </li>
                         ))}
                     </ul>
                 </div>
             </div>
+            <div className="bg-gray-800 mt-6 p-4 rounded-lg shadow-lg">
+                <h3 className="text-lg font-semibold text-white">Historial de Retiros</h3>
+                <HistorialRetiros className="mt-4" />
+            </div>
         </div>
-    );
+    </div>
+);
+
+    
 };
 
 export default Retiros;

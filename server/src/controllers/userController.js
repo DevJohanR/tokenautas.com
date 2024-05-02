@@ -236,6 +236,27 @@ const processWithdrawal = async (req, res, next) => {
 
 
 
+const getWithdrawalsByUserId = async (req, res) => {
+  const { userId } = req.params;
+  if (!userId) {
+      return res.status(400).json({ message: 'El parámetro userId es requerido' });
+  }
+
+  try {
+      const [withdrawals] = await pool.query('SELECT * FROM retiros WHERE user_id = ?', [userId]);
+      if (!withdrawals.length) {
+          return res.status(404).json({ message: 'No se encontraron retiros para el usuario proporcionado' });
+      }
+
+      return res.status(200).json(withdrawals);
+  } catch (error) {
+      console.error('Error al obtener el historial de retiros:', error);
+      return res.status(500).json({ message: 'Error al obtener el historial de retiros', error: error.message });
+  }
+};
+
+
+
 
 
 const updateUserPassword = (req, res, next) => {
@@ -253,5 +274,6 @@ module.exports = {
   addBank,
     getBanksByUserId,
     getUserIdByUsername,
-    processWithdrawal
+    processWithdrawal,
+    getWithdrawalsByUserId
 };

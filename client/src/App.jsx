@@ -27,9 +27,18 @@ function App() {
         <Route path='/' element={<HomePage/>} />
         <Route path='/login' element={<LoginPage/>} />
         <Route path='/register' element={<RegisterPage/>} />
-        <Route path='/retirar' element={<RetirarPage/>} />
+    
      
         <Route path='/test' element={<TestPage/>} />
+
+   {/* Protege la ruta /RetirarPage con ProtectedRoute */}
+   <Route path='/retirar' element={
+          <ProtectedRoute>
+          <RetirarPage/>
+          </ProtectedRoute>
+        } />
+
+
       {/* Protege la ruta /bitcoin con ProtectedRoute */}
       <Route path='/bitcoin' element={
           <ProtectedRoute>

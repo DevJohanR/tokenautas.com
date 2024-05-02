@@ -3,6 +3,8 @@ import styles from './Menu.module.css'; // Importa el CSS como un módulo
 import Logo from '/logos/coheteLogoBlanco.png';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { BiMoneyWithdraw } from "react-icons/bi";
+
 import {
     FaDelicious,
     FaShoppingCart,
@@ -53,6 +55,8 @@ const Menu = () => {
         });
     }
 
+    
+
     return (
         <menu className={styles.menu}>
             <img src={Logo} alt="Logo" className={styles.logo} />
@@ -60,17 +64,23 @@ const Menu = () => {
             <ul id='mainMenu'>
                 <Link to='/dashboard'>
                     <Icon icon={<FaDelicious />} />
+                    <span className={styles.textoIcono}>Panel</span>
                 </Link>
-                <Link to=''>
-                    <Icon icon={<FaShoppingCart />} />
+                <Link className={styles.icono} to='/retirar' >
+                    <Icon  icon={<BiMoneyWithdraw />} />
+                    <span className={styles.textoIcono}>Retirar</span>
                 </Link>
+                <Link>
                 <Icon icon={<FaWallet />} onClick={handleWalletClick} />
+                <span className={styles.textoIcono}>Billetera</span>
+                </Link>
+              
 
                 <Link to="/registrarBancos">
                 <Icon icon={<FaChartLine />} />
+                <span className={styles.textoIcono}>Bancos</span>
                 </Link>
-                <Icon icon={<FaRegClock />} />
-                <Icon icon={<FaDelicious />} />
+              
             </ul>
 
             <ul id='lastMenu'>

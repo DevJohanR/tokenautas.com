@@ -1,7 +1,7 @@
 //server/src/routes/userRoutes.js
 const express = require('express');
 const router = express.Router();
-const { login, registerUser, getUserImagenUSDT, getUserImagenBTC, updateUserPassword, getUsername, getWalletBalance,  addBank, getBanksByUserId, getUserIdByUsername, processWithdrawal } = require('../controllers/userController');
+const { login, registerUser, getUserImagenUSDT, getUserImagenBTC, updateUserPassword, getUsername, getWalletBalance,  addBank, getBanksByUserId, getUserIdByUsername, processWithdrawal,} = require('../controllers/userController');
 
 router.post('/login', login);
 router.post('/register', registerUser);
@@ -25,6 +25,9 @@ router.get('/banks/:userId', getBanksByUserId);
 router.get('/get-user-id/:username', getUserIdByUsername);
 
 router.post('/withdraw', processWithdrawal);
+
+
+
 
 
 

@@ -28,7 +28,9 @@
 .registrarBancosPage{
   display: flex;
 }
-
+.retirarPage{
+  display: flex;
+}
 
 .button1 {
   text-decoration: none;
