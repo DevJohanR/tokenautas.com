@@ -10,7 +10,7 @@ const GetUserImagenBTC = ({ userId }) => {
 
   useEffect(() => {
     setLoading(true);
-    axios.get(`http://localhost:3001/users/btc/${userId}`)
+    axios.get(`https://tokenautasreact-node.onrender.com/users/btc/${userId}`)
       .then((response) => {
         setUser(response.data);
         setError('');
@@ -31,7 +31,7 @@ const GetUserImagenBTC = ({ userId }) => {
   return (
     <div>
       <h1>Imagen BTC del Usuario</h1>
-      <img src={`http://localhost:3001/assets/${user.imagenbtc.replace('assets/', '')}`} alt={`${user.username}'s Wallet BTC`} />
+      <img src={`https://tokenautasreact-node.onrender.com/assets/${user.imagenbtc.replace('assets/', '')}`} alt={`${user.username}'s Wallet BTC`} />
     </div>
   );
 };

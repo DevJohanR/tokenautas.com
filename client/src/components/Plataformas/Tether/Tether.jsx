@@ -13,7 +13,7 @@ const Tether = () => {
     const storedUserId = localStorage.getItem('userId'); // Obtén el userId de localStorage
     if (storedUserId) {
       setUserId(storedUserId); // Actualiza el estado con el userId
-      fetch(`http://localhost:3001/users/tether/${storedUserId}`)
+      fetch(`https://tokenautasreact-node.onrender.com/users/tether/${storedUserId}`)
         .then(response => {
           if (!response.ok) {
             throw new Error('No se pudo obtener la imagen');

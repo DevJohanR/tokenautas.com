@@ -9,7 +9,7 @@ const Dashboard = () => {
       
       const getUserData = async () => {
         try {
-          const response = await axios.get(`http://localhost:3001/users/${userId}`);
+          const response = await axios.get(`https://tokenautasreact-node.onrender.com/users/${userId}`);
           if (response.status === 200) {
             setUserData(response.data);
           } else {
@@ -33,8 +33,8 @@ const Dashboard = () => {
       <div>
         <h1>Bienvenido, {userData.username}</h1>
         {/* Mostrar imágenes con las rutas obtenidas desde la API */}
-        <img src={`http://localhost:3001/assets/${userData.imagenusdt}`} alt="Wallet USDT" />
-        <img src={`http://localhost:3001/assets/${userData.imagenbtc}`} alt="Wallet BTC" />
+        <img src={`https://tokenautasreact-node.onrender.com/assets/${userData.imagenusdt}`} alt="Wallet USDT" />
+        <img src={`https://tokenautasreact-node.onrender.com/assets/${userData.imagenbtc}`} alt="Wallet BTC" />
       </div>
     );
   };

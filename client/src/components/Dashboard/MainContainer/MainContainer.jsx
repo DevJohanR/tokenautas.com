@@ -48,7 +48,7 @@ function MainContainer() {
       return;
     }
 
-    axios.get(`http://localhost:3001/users/username/${userId}`)
+    axios.get(`https://tokenautasreact-node.onrender.com/users/username/${userId}`)
       .then(response => {
         setUsername(response.data.username); // Actualiza el estado con el nombre de usuario obtenido
       })
@@ -64,7 +64,7 @@ function MainContainer() {
     // Suponemos que el userId está almacenado en localStorage
     const userId = localStorage.getItem('userId');
     if (userId) {
-      axios.get(`http://localhost:3001/users/wallet/${userId}`)
+      axios.get(`https://tokenautasreact-node.onrender.com/users/wallet/${userId}`)
         .then(response => {
           setWalletBalance(response.data.mi_billetera1);
         })

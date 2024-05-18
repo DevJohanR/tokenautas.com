@@ -9,7 +9,7 @@ const GetUImagenBTC = ({ userId }) => {
 
   useEffect(() => {
     setLoading(true);
-    axios.get(`http://localhost:3001/users/btc/${userId}`)
+    axios.get(`https://tokenautasreact-node.onrender.com/users/btc/${userId}`)
       .then((response) => {
         setImageBTC(response.data.imagenbtc);
         setError('');
@@ -28,7 +28,7 @@ const GetUImagenBTC = ({ userId }) => {
   if (!imageBTC) return <div>No se encontró la imagen.</div>;
 
   return (
-    <img src={`http://localhost:3001/assets/${imageBTC.replace('assets/', '')}`} alt="Bitcoin Wallet" />
+    <img src={`https://tokenautasreact-node.onrender.com/assets/${imageBTC.replace('assets/', '')}`} alt="Bitcoin Wallet" />
   );
 };
 

@@ -9,7 +9,7 @@ const GetUImagenUSDT = ({ userId }) => {
 
   useEffect(() => {
     setLoading(true);
-    axios.get(`http://localhost:3001/users/${userId}`)
+    axios.get(`https://tokenautasreact-node.onrender.com/users/${userId}`)
       .then((response) => {
         setUser(response.data);
         setError('');
@@ -30,7 +30,7 @@ const GetUImagenUSDT = ({ userId }) => {
   return (
     <div>
       {/* Si necesitas un contenedor aquí, puedes mantener el div o quitarlo si no es necesario */}
-      <img src={`http://localhost:3001/assets/${user.imagenusdt.replace('assets/', '')}`} alt="Wallet" />
+      <img src={`https://tokenautasreact-node.onrender.com/assets/${user.imagenusdt.replace('assets/', '')}`} alt="Wallet" />
     </div>
   );
 };

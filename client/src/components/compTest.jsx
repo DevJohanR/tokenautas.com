@@ -7,7 +7,7 @@ const UsersInfo = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/users');
+        const response = await axios.get('https://tokenautasreact-node.onrender.com/users');
         setUsers(response.data); // Asumiendo que la respuesta es un array de usuarios
       } catch (error) {
         console.error('Hubo un error al obtener los datos de los usuarios:', error);

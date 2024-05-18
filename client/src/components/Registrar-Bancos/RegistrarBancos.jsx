@@ -24,7 +24,7 @@ const RegistrarBancos = () => {
 
     const fetchBanks = async (userId) => {
         try {
-            const response = await axios.get(`http://localhost:3001/users/banks/${userId}`);
+            const response = await axios.get(`https://tokenautasreact-node.onrender.com/users/banks/${userId}`);
             setBanks(response.data);
         } catch (error) {
             console.error('Error al obtener bancos:', error);
@@ -38,7 +38,7 @@ const RegistrarBancos = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:3001/users/banks', formData);
+            const response = await axios.post('https://tokenautasreact-node.onrender.com/users/banks', formData);
             Swal.fire('Registro exitoso', 'Banco registrado con éxito', 'success');
             fetchBanks(formData.user_id);  // Refetch banks after a new one is added
         } catch (error) {

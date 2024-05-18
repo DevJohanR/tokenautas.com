@@ -12,7 +12,7 @@ const Bitcoin = () => {
     const storedUserId = localStorage.getItem('userId'); // Obtén el userId de localStorage
     if (storedUserId) {
       setUserId(storedUserId); // Actualiza el estado con el userId
-      axios.get(`http://localhost:3001/users/btc/${storedUserId}`)
+      axios.get(`https://tokenautasreact-node.onrender.com/users/btc/${storedUserId}`)
         .then(response => {
           if (response.status === 200) {
             setWalletBTCImage(response.data.imagenbtc);

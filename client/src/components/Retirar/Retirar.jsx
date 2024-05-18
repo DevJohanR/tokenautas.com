@@ -31,7 +31,7 @@ const Retiros = () => {
 
     const fetchBanks = async (userId) => {
         try {
-            const response = await axios.get(`http://localhost:3001/users/banks/${userId}`);
+            const response = await axios.get(`https://tokenautasreact-node.onrender.com/users/banks/${userId}`);
             setBanks(response.data);
         } catch (error) {
             console.error('Error al obtener bancos:', error);
@@ -40,7 +40,7 @@ const Retiros = () => {
 
     const fetchBalance = async (userId) => {
         try {
-            const response = await axios.get(`http://localhost:3001/users/wallet/${userId}`);
+            const response = await axios.get(`https://tokenautasreact-node.onrender.com/users/wallet/${userId}`);
             setBalance(parseFloat(response.data.mi_billetera1));
         } catch (error) {
             console.error('Error al obtener balance:', error);
@@ -65,7 +65,7 @@ const Retiros = () => {
         if (!preventDuplicateTransaction()) return;
 
         try {
-            const response = await axios.post('http://localhost:3001/users/withdraw', withdrawalData);
+            const response = await axios.post('https://tokenautasreact-node.onrender.com/users/withdraw', withdrawalData);
             if (response.data.message === 'Retiro procesado con éxito') {
                 setBalance(prevBalance => prevBalance - parseFloat(withdrawalData.valor_retirar));
                 Swal.fire('Retiro exitoso', `Retiro procesado con éxito. Identificador de la transacción: ${withdrawalData.identificador_transaccion}`, 'success');
