@@ -1,5 +1,5 @@
 // server/src/index.js
-///////////////////////
+//test
 const express = require('express');
 const cors = require('cors');
 const userRoutes = require('./routes/userRoutes');
