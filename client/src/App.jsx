@@ -16,6 +16,7 @@ import BitcoinPage from './routes/BitcoinPage.jsx';
 import TestPage from './routes/TestPage.jsx';
 import RegistrarBancosPage from './routes/RegistrarBancosPage.jsx';
 import RetirarPage from './routes/RetirarPage.jsx';
+import BlogPage from './components/Landing/Blog/Chaturbate/BlogPage.jsx';
 
 // Importa el componente ProtectedRoute
 import ProtectedRoute from './components/Autenticacion/Login/ProtectedRoute.jsx'; // Ajusta la ruta de importación según tu estructura de directorios
@@ -30,6 +31,7 @@ function App() {
     
      
         <Route path='/test' element={<TestPage/>} />
+        <Route path='/blogpage' element={<BlogPage/>} />
 
    {/* Protege la ruta /RetirarPage con ProtectedRoute */}
    <Route path='/retirar' element={

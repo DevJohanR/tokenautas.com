@@ -221,8 +221,53 @@ font-family: bold;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 5px 15;
+      padding: 5px 15px;
     }
+
+
+    /*Desarrollador 7777*/
+    /*Desarrollador 7777*/
+    /*Desarrollador 7777*/
+
+    
+    @media (min-width: 1367px){
+
+      .mainContainer .left .cards main{
+        display: flex;
+        justify-content:space-between;
+        align-items: center;
+        flex-wrap: wrap;
+     }
+     .mainContainer .left .cards .btn{
+      display: flex;
+      justify-content: center;
+   }
+
+
+   .mainContainer .left .cards main .card_main .card_main_name h2{
+    color: #e9e9ec;
+    font-size: 26px;
+    font-weight: bold;
+   }
+
+
+   .mainContainer .left .cards main .card_main .stats p{
+    color: #adabb8;
+    font-size: 17px;
+    font-weight: 600;
+      }
+
+
+   .mainContainer .left .cards main .card_main .stats p span{
+    display: block;
+    color: #b1147d;
+    font-size: 19px;
+    font-weight: bolder;
+    }
+    
+    }
+
+
 
     .mainContainer .left .cards main .card_main .card_button .btn{
       font-size: 10px !important;
