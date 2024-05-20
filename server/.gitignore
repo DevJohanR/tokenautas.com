@@ -1,7 +1,2 @@
-# Node modules
 node_modules/
-
-
-# IDEs and editors
-.idea
-.vscode
+node_modules/
