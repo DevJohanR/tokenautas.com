@@ -1,0 +1,244 @@
+h1, span, p {
+    color: white;
+}
+
+.Bitcoin {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+    background: url(./fondos/fondoQR.webp);
+    z-index: 1;
+}
+
+.imagenBitcoin {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.imagenBitcoin::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+.imagenBitcoin img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+
+}
+
+.descripcionBitcoin {
+    flex: 1;
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+@media (min-width: 501px) {
+    .Bitcoin {
+        flex-direction: row;
+    }
+
+    .imagenBitcoin {
+        flex: 0 0 40%;
+        height: 100vh;
+        width: auto;
+    }
+
+    .descripcionBitcoin {
+        flex: 1;
+        background-color: red;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 20px;
+        box-sizing: border-box;
+        overflow-y: auto;
+    }
+}
+
+@media (max-width: 500px) {
+    .Bitcoin {
+        flex-direction: column;
+    }
+
+    .imagenBitcoin {
+        flex: 0 0 40%;
+        height: auto;
+    }
+
+    .descripcionBitcoin {
+        flex: 1;
+        min-height: 150px;
+    }
+}
+
+@media (min-width: 501px) and (max-width: 1186px) {
+    .Bitcoin {
+        flex-direction: column;
+    }
+
+    .imagenBitcoin {
+        height: 150px;
+    }
+
+    .descripcionBitcoin {
+        min-height: 150px;
+    }
+}
+
+@media (min-width: 1187px) {
+    .Bitcoin {
+        flex-direction: row;
+        align-items: center; /* Centra verticalmente */
+        justify-content: center; /* Centra horizontalmente */
+        padding: 20px;
+    }
+
+    .imagenBitcoin {
+        flex: 0 0 30%; /* Tamaño del contenedor */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        height: 80vh; /* Ajusta la altura del contenedor */
+        position: relative;
+        margin: 20px; /* Añade margen alrededor del contenedor */
+        box-shadow: 0px 4px 15px rgba(161, 12, 12, 0.5); /* Añade sombra al contenedor */
+        box-sizing: border-box;
+    }
+
+    .imagenBitcoin::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 2;
+    }
+
+    .imagenBitcoin img {
+        width: 90%; /* Reduce el tamaño de la imagen */
+        height: 90%; /* Reduce el tamaño de la imagen */
+        object-fit: contain;
+        position: relative; /* Ajusta la posición de la imagen */
+        z-index: 3;
+    }
+
+    .descripcionBitcoin {
+        flex: 1;
+        background-color: red;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Centra verticalmente */
+        align-items: center;
+        padding: 40px; /* Incrementa el padding */
+        box-sizing: border-box;
+        overflow-y: auto;
+        margin-left: 40px; /* Añade margen a la izquierda */
+        height: auto; /* Ajusta la altura automática */
+    }
+
+    .descripcionBitcoin p {
+        width: 80%;
+        padding-right: 105px;
+        padding-left: 110px;
+        font-size: 25px;
+        text-align: center;
+        padding-top: 40px;
+    }
+}
+
+@media (min-width: 1367px) {
+    .Bitcoin {
+        flex-direction: row;
+        align-items: center; /* Centra verticalmente */
+        justify-content: center; /* Centra horizontalmente */
+        padding: 20px;
+    }
+
+    .imagenBitcoin {
+        flex: 0 0 30%; /* Tamaño del contenedor */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        height: 80vh; /* Ajusta la altura del contenedor */
+        position: relative;
+        margin: 20px; /* Añade margen alrededor del contenedor */
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5); /* Añade sombra al contenedor */
+        box-sizing: border-box;
+    }
+
+    .imagenBitcoin::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 2;
+    }
+
+    .imagenBitcoin img {
+        width: 90%; /* Reduce el tamaño de la imagen */
+        height: 90%; /* Reduce el tamaño de la imagen */
+        object-fit: contain;
+        position: relative; /* Ajusta la posición de la imagen */
+        z-index: 3;
+    }
+
+    .descripcionBitcoin {
+        flex: 1;
+        background-color: red;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Centra verticalmente */
+        align-items: center;
+        padding: 40px; /* Incrementa el padding */
+        box-sizing: border-box;
+        overflow-y: auto;
+        width: 100vw;
+        margin-left: 40px; /* Añade margen a la izquierda */
+        height: auto; /* Ajusta la altura automática */
+    }
+
+    .descripcionBitcoin p {
+        width: 80%;
+        padding-right: 105px;
+        padding-left: 110px;
+        font-size: 25px;
+        text-align: center;
+        padding-top: 40px;
+    }
+}
+
+
+/**/
