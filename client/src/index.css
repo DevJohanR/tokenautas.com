@@ -7,6 +7,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  
 }
 
 .testPage{
@@ -60,6 +61,7 @@
     padding: 5px 15px;
     border-radius: 10px;
     margin: 0px 5px;
+    
   }
   
 

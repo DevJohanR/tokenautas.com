@@ -2,10 +2,9 @@ import React from "react";
 import { FaFacebook, FaTwitter, FaWhatsapp } from "react-icons/fa";
 import { FacebookShareButton, TwitterShareButton, WhatsappShareButton } from "react-share";
 
-function CardMain({ imgSrc, title, hearts }) {
-  const shareUrl = "https://tokenautas.com/blogpage"; // URL pública
-  const shareText = `Vende tus tokens Aqui: ${title}`;
- 
+function CardMain({ imgSrc, title }) {
+  const shareUrl = "https://tokenautas.com"; // URL principal
+  const shareText = `Vende tus tokens Aquí: ${title}`;
 
   const shareButtonStyle = {
     display: "inline-block",
@@ -13,6 +12,18 @@ function CardMain({ imgSrc, title, hearts }) {
     cursor: "pointer",
     color: "#fff",
     fontSize: "1.5em",
+  };
+
+  const shareButtonStyleSmall = {
+    ...shareButtonStyle,
+    fontSize: "1em",
+  };
+
+  const isSmallScreen = window.matchMedia("(max-width: 1366px)").matches;
+
+  const priceStyle = {
+    fontFamily: "Verdana, Geneva, Tahoma, sans-serif", // Añadir la fuente aquí
+    fontWeight: 600,
   };
 
   return (
@@ -25,7 +36,7 @@ function CardMain({ imgSrc, title, hearts }) {
             url={shareUrl}
             quote={shareText}
             hashtag="#tokenautas"
-            style={shareButtonStyle}
+            style={isSmallScreen ? shareButtonStyleSmall : shareButtonStyle}
           >
             <FaFacebook />
           </FacebookShareButton>
@@ -34,7 +45,7 @@ function CardMain({ imgSrc, title, hearts }) {
             title={shareText}
             via="tokenautas"
             hashtags={["tokenautas"]}
-            style={shareButtonStyle}
+            style={isSmallScreen ? shareButtonStyleSmall : shareButtonStyle}
           >
             <FaTwitter />
           </TwitterShareButton>
@@ -42,7 +53,7 @@ function CardMain({ imgSrc, title, hearts }) {
             url={shareUrl}
             title={shareText}
             separator=":: "
-            style={shareButtonStyle}
+            style={isSmallScreen ? shareButtonStyleSmall : shareButtonStyle}
           >
             <FaWhatsapp />
           </WhatsappShareButton>
@@ -50,13 +61,13 @@ function CardMain({ imgSrc, title, hearts }) {
       </div>
       <div className="stats">
         <div>
-          <p>
-            Precio del Token USD<span>$1</span>
+          <p style={priceStyle}>
+            Valor-Token<span>$1</span>
           </p>
         </div>
         <div>
           <a href="#" className="button1 btn">
-            Vender Tokens
+            Vender
           </a>
         </div>
       </div>
