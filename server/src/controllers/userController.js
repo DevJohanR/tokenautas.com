@@ -258,12 +258,52 @@ const getWithdrawalsByUserId = async (req, res) => {
 
 
 
+//dev7777
+// Obtener walletUSDT
+const obtenerWalletUSDT = async (req, res, next) => {
+  const usuarioId = req.params.usuarioId;
+  try {
+    const [resultado] = await pool.query('SELECT walletUSDT FROM usuarios WHERE user_id = ?', [usuarioId]);
+    if (resultado.length > 0) {
+      const { walletUSDT } = resultado[0];
+      res.json({ walletUSDT });
+    } else {
+      res.status(404).json({ mensaje: 'Usuario no encontrado' });
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
+// Obtener walletBTC
+const obtenerWalletBTC = async (req, res, next) => {
+  const usuarioId = req.params.usuarioId;
+  try {
+    const [resultado] = await pool.query('SELECT walletBTC FROM usuarios WHERE user_id = ?', [usuarioId]);
+    if (resultado.length > 0) {
+      const { walletBTC } = resultado[0];
+      res.json({ walletBTC });
+    } else {
+      res.status(404).json({ mensaje: 'Usuario no encontrado' });
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
+
+
+
+
+
 
 const updateUserPassword = (req, res, next) => {
   // Agrega aquí tu lógica para actualizar la contr
 };
 
 module.exports = {
+  obtenerWalletUSDT,
+  obtenerWalletBTC,
   login,
   registerUser,
   getUserImagenUSDT,
