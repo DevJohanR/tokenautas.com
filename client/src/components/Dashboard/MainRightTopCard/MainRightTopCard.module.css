@@ -1,52 +1,147 @@
-.billeterasTop{
+/* MainRightTopCard.module.css */
+.topCard {
+    padding: 20px;
+    background-color: #19162c; /* Fondo oscuro para la tarjeta */
+    border-radius: 10px;
+    color: #d1d0d5; /* Color de texto claro */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4); /* Sombra para dar profundidad */
+    width: 100%; /* Asegurar que el ancho sea completo */
+    overflow: hidden; /* Evitar desbordamiento */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .topCard_name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 12px;
+  }
+  
+  .billeterasTop {
     font-weight: bold;
     font-size: 2rem;
-}
-
-
-.billeterasDescripcion{
-    color:  white;
+  }
+  
+  .billeterasDescripcion {
+    color: white;
     max-width: 320px;
     display: flex;
     flex-direction: column;
     text-align: center;
-}
-
-.tutorialCriptomonedas{
-    background-color: rgb(255, 255, 255);
+  }
+  
+  .tutorialCriptomonedas {
+  color: rgb(246, 3, 206);
     text-align: center;
-
-}
-
-.tutorialCriptomonedas a{
-  font-weight: bolder;
-    
-}
-
-.texto{
-
+  }
+  
+  .tutorialCriptomonedas a {
+    font-weight: bolder;
+  }
+  
+  .texto {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-
-@media (min-width:1367px){
-    .billeterasTop{
-        font-weight: bold;
-        font-size: 2.9rem;
+  }
+  
+  @media (min-width: 1367px) {
+    .billeterasTop {
+      font-weight: bold;
+      font-size: 2.9rem;
     }
-
-    .billeterasDescripcion{
-        color:  white;
-        max-width: 480px;
-        font-size: 20px;
+  
+    .billeterasDescripcion {
+      color: white;
+      max-width: 480px;
+      font-size: 20px;
     }
-
-    .texto{
-        display: flex;
-        flex-direction: column;
-        gap: 35px;
+  
+    .texto {
+      display: flex;
+      flex-direction: column;
+      gap: 35px;
     }
-}
+  }
+  
+  /* Nuevas clases para evitar conflicto de estilos */
+  .nuevaTopCard {
+    padding: 20px;
+    background-color: #19162c; /* Fondo oscuro para la tarjeta */
+    border-radius: 10px;
+    color: #d1d0d5; /* Color de texto claro */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4); /* Sombra para dar profundidad */
+    width: 100%; /* Asegurar que el ancho sea completo */
+    overflow: hidden; /* Evitar desbordamiento */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .nuevaTopCard_name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 12px;
+  }
+  
+  .nuevaBilleterasTop {
+    font-weight: bold;
+    font-size: 2rem;
+  }
+  
+  .nuevaBilleterasDescripcion {
+    color: white;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .nuevaTutorialCriptomonedas {
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+  }
+  
+  .nuevaTutorialCriptomonedas a {
+    font-weight: bolder;
+  }
+  
+  .nuevaTexto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  @media (min-width: 1367px) {
+    .nuevaBilleterasTop {
+      font-weight: bold;
+      font-size: 2.9rem;
+    }
+  
+    .nuevaBilleterasDescripcion {
+      color: white;
+      max-width: 480px;
+      font-size: 20px;
+    }
+  
+    .nuevaTexto {
+      display: flex;
+      flex-direction: column;
+      gap: 35px;
+    }
+  }
+  
+
+  .abreviatura {
+    background-color: #333; /* Fondo oscuro */
+    color: #fff;           /* Color de texto blanco para contraste */
+    padding: 2px 6px;      /* Espaciado interno */
+    border-radius: 4px;    /* Bordes redondeados */
+    display: inline-block; /* Para que el fondo se ajuste solo al texto */
+  }
+  

@@ -1,30 +1,40 @@
-import React from "react";
+import React from 'react';
 import TarjetaCripto from "../Billetera/Billetera";
-import styles from './MainRightTopCard.module.css'; // Make sure this matches the name of your CSS file
+import styles from './MainRightTopCard.module.css'; // Asegúrate de que este nombre coincida con el de tu archivo CSS
 
+const criptoData = [
+  {
+    nombre: "",
+    abreviatura: "[BTC] ",
+    imagenSrc: "/plataformasDashboard/BBB.webp", // Ruta a la imagen en la carpeta public
+    hue: 0
+  },
+  {
+    nombre: "",
+    abreviatura: "[USDT]",
+    imagenSrc: "/plataformasDashboard/TTT.webp", // Ruta a la imagen en la carpeta public
+    hue: 180
+  }
+];
 
-function MainRightTopCard({ criptoData }) {
+function MainRightTopCard() {
   return (
-    <div className="topCard">
-      <div className="topCard_name">
+    <div className={styles.topCard}>
+      <div className={styles.topCard_name}>
         <div className={styles.texto}>
-        <h2 className={styles.billeterasTop} >BILLETERAS</h2>
-        <p className={styles.billeterasDescripcion}>
-          Utilizalas para recibir regalos de tus <strong>tippers.</strong> Enviales el codigo QR e informales que deseas recibir criptomonedas,  <span className={styles.tutorialCriptomonedas} ><a href="">¡Mira el tutorial de criptomonedas aqui!</a></span>
-        </p>
-        
+          <h2 className={styles.billeterasTop}>BILLETERAS</h2>
+          <p className={styles.billeterasDescripcion}>
+            Utilízalas para recibir regalos de tus <strong>tippers.</strong> Envíales el código QR e infórmales que deseas recibir criptomonedas, <span className={styles.tutorialCriptomonedas}><a href="">¡Ver tutorial aquí!</a></span>
+          </p>
         </div>
-       
-   
       </div>
       <div className="earning">
-        
         <ul>
           {criptoData.map((data, index) => (
             <TarjetaCripto
               key={index}
               nombre={data.nombre}
-              abreviatura={data.abreviatura}
+              abreviatura={<span className={styles.abreviatura}>{data.abreviatura}</span>}
               imagenSrc={data.imagenSrc}
               hue={data.hue}
             />

@@ -240,7 +240,7 @@ h1, span, p {
         padding: 40px; /* Incrementa el padding */
         box-sizing: border-box;
         overflow-y: auto;
-        width: 100vw;
+        width: 80vw;
         margin-left: 40px; /* Añade margen a la izquierda */
         height: auto; /* Ajusta la altura automática */
     }
@@ -260,5 +260,9 @@ h1, span, p {
     justify-content: center;
     align-items: center;
     gap: 5px;
+flex-direction: column-reverse;
+    width: 100%;
+    padding-top: 20px;
+    font-weight: bold;
 }
 /**/
