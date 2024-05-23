@@ -81,6 +81,7 @@ function MainContainer() {
   return (
     <div className="mainContainer">
        <div className="left">
+        
         <div className="banner" style={{
             background: `url(${Banner})`,
             backgroundRepeat: "no-repeat",
@@ -88,16 +89,34 @@ function MainContainer() {
             backgroundSize: "cover",
           
           }}>
+           <div className="overlay" style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            borderRadius: "10px",
+            zIndex: 1,
+          }}></div>
+            
 
-        <div className="textContainer">
+        <div className="textContainer" style={{
+            position: "relative",
+            zIndex: 2,
+            padding: "20px",
+            marginLeft: "30px"
+          }}>
+       
         <h1>TU SALDO</h1>
 
           <h2>{walletBalance}</h2>
           <p>{username}</p>
           <div className="bid">
-            <a href="#" className="button1">
+            <Link to="/retirar" >  <a href="#" className="button1">
                 Retirar
-            </a>
+            </a></Link>
+          
             <p>
               <span></span>
             </p>

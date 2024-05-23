@@ -5,15 +5,17 @@ import styles from './MainRightTopCard.module.css'; // Asegúrate de que este no
 const criptoData = [
   {
     nombre: "",
-    abreviatura: "[BTC] ",
+    abreviatura: "Bitcoin",
     imagenSrc: "/plataformasDashboard/BBB.webp", // Ruta a la imagen en la carpeta public
-    hue: 0
+    hue: 0,
+    ruta: "/bitcoin"
   },
   {
     nombre: "",
-    abreviatura: "[USDT]",
+    abreviatura: "Tether",
     imagenSrc: "/plataformasDashboard/TTT.webp", // Ruta a la imagen en la carpeta public
-    hue: 180
+    hue: 180,
+    ruta: "/tether"
   }
 ];
 
@@ -37,6 +39,7 @@ function MainRightTopCard() {
               abreviatura={<span className={styles.abreviatura}>{data.abreviatura}</span>}
               imagenSrc={data.imagenSrc}
               hue={data.hue}
+              ruta={data.ruta}
             />
           ))}
         </ul>

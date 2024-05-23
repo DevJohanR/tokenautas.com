@@ -57,12 +57,15 @@
   border-radius: 10px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
   position: relative;
+  overflow: hidden; /* Asegura que la superposición no se salga del contenedor */
 }
+
 
 .mainContainer .left .banner .textContainer {
   position: absolute;
   bottom: 20px;
   right: 20px;
+
 }
 
 .mainContainer .left .banner .textContainer h1 {

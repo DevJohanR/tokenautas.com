@@ -21,3 +21,24 @@
   z-index: -1; /* Ensures that the image is behind the text content */
 }
 
+.main__card {
+  position: relative;
+  overflow: hidden; /* Asegúrate de que nada se salga del contenedor */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Ajusta la opacidad como prefieras */
+  z-index: 1; /* Asegúrate de que esté por encima de la imagen de fondo */
+}
+
+.main__card h3,
+.main__card p {
+  position: relative;
+  z-index: 2; /* Asegúrate de que el texto esté por encima de la superposición */
+  color: white; /* Para resaltar las palabras */
+}

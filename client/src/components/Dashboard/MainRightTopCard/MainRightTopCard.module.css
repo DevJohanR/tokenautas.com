@@ -22,6 +22,7 @@
   .billeterasTop {
     font-weight: bold;
     font-size: 2rem;
+    color: white;
   }
   
   .billeterasDescripcion {
@@ -118,30 +119,153 @@
   }
   
   @media (min-width: 1367px) {
-    .nuevaBilleterasTop {
-      font-weight: bold;
-      font-size: 2.9rem;
+    .topCard {
+        min-height: 90vh; /* Asegura que cubra toda la altura de la pantalla */
+        overflow-x: hidden; /* Evita el desbordamiento horizontal */
+        padding: 20px;
+        background-color: #19162c; /* Fondo oscuro para la tarjeta */
+        border-radius: 10px;
+        color: #d1d0d5; /* Color de texto claro */
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4); /* Sombra para dar profundidad */
+        width: 68%; /* Asegurar que el ancho sea completo */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-sizing: border-box; /* Asegura que el padding se incluya en el tamaño total */
     }
-  
-    .nuevaBilleterasDescripcion {
-      color: white;
-      max-width: 480px;
-      font-size: 20px;
-    }
-  
-    .nuevaTexto {
-      display: flex;
-      flex-direction: column;
-      gap: 35px;
-    }
-  }
-  
 
-  .abreviatura {
-    background-color: #333; /* Fondo oscuro */
-    color: #fff;           /* Color de texto blanco para contraste */
-    padding: 2px 6px;      /* Espaciado interno */
-    border-radius: 4px;    /* Bordes redondeados */
-    display: inline-block; /* Para que el fondo se ajuste solo al texto */
-  }
+    .billeterasTop {
+        font-weight: bold;
+        font-size: 2.9rem;
+    }
+
+    .billeterasDescripcion {
+        color: white;
+        max-width: 480px;
+        font-size: 20px;
+        height: 300px;
+    }
+
+    .texto {
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
+    }
+
+    .nuevaTopCard {
+        min-height: 90vh; /* Asegura que cubra toda la altura de la pantalla */
+        overflow-x: hidden; /* Evita el desbordamiento horizontal */
+        padding: 20px;
+        background-color: #19162c; /* Fondo oscuro para la tarjeta */
+        border-radius: 10px;
+        color: #d1d0d5; /* Color de texto claro */
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4); /* Sombra para dar profundidad */
+        width: 100%; /* Asegurar que el ancho sea completo */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-sizing: border-box; /* Asegura que el padding se incluya en el tamaño total */
+    }
+
+    .nuevaBilleterasTop {
+        font-weight: bold;
+        font-size: 2.9rem;
+    }
+
+    .nuevaBilleterasDescripcion {
+        color: white;
+        max-width: 480px;
+        font-size: 20px;
+    }
+
+    .nuevaTexto {
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
+    }
+}
+
+.abreviatura {
+  font-weight: bold;
+  color: #fff;           /* Color de texto blanco para contraste */
+  padding: 2px 6px;      /* Espaciado interno */
+  border-radius: 4px;    /* Bordes redondeados */
+  display: inline-block; /* Para que el fondo se ajuste solo al texto */
+  font-size: 20px;
+  position: relative;    /* Necesario para la pseudo-clase ::before */
+  z-index: 1;            /* Asegura que el texto esté por encima del pseudo-elemento */
+  text-shadow: 
+    0 0 5px rgba(72, 72, 68, 0.8), /* Brillo suave */
+    0 0 10px rgba(219, 219, 212, 0.7), /* Brillo más intenso */
+    2px 2px 4px rgba(0, 0, 0, 0.5),    /* Sombra estándar */
+    -1px -1px 2px rgba(255, 255, 255, 0.7), /* Sombra hacia arriba para efecto 3D */
+    3px 3px 5px rgba(0, 0, 0, 0.7),    /* Sombra negra adicional */
+    -3px -3px 5px rgba(0, 0, 0, 0.7),  /* Sombra negra en dirección opuesta */
+    0px 0px 2px rgba(0, 0, 0, 1),     /* Borde alrededor de cada letra */
+    0px 0px 3px rgba(0, 0, 0, 1),     /* Borde más pronunciado */
+    1px 1px 2px rgba(0, 0, 0, 0.8),   /* Sombra negra adicional */
+    -1px -1px 2px rgba(0, 0, 0, 0.8); /* Sombra negra en dirección opuesta */
+}
+
+.abreviatura::before {
+  content: attr(data-text); /* Repite el texto */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1; /* Coloca detrás del texto */
+  color: black; /* Color del borde */
+  -webkit-text-stroke: 1px black; /* Borde negro */
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 4px;
+  display: inline-block;
+  font-size: 20px;
+}
+
+
+
+
+
+
+
+.abreviatura {
+  font-weight: bold;
+  color: #fff;           /* Color de texto blanco para contraste */
+  padding: 2px 6px;      /* Espaciado interno */
+  border-radius: 4px;    /* Bordes redondeados */
+  display: inline-block; /* Para que el fondo se ajuste solo al texto */
+  font-size: 20px;
+  position: relative;    /* Necesario para la pseudo-clase ::before */
+  z-index: 1;            /* Asegura que el texto esté por encima del pseudo-elemento */
+  text-shadow: 
+    0 0 5px rgba(72, 72, 68, 0.8), /* Brillo suave */
+    0 0 10px rgba(219, 219, 212, 0.7), /* Brillo más intenso */
+    2px 2px 4px rgba(0, 0, 0, 0.5),    /* Sombra estándar */
+    -1px -1px 2px rgba(255, 255, 255, 0.7), /* Sombra hacia arriba para efecto 3D */
+    3px 3px 5px rgba(0, 0, 0, 0.7),    /* Sombra negra adicional */
+    -3px -3px 5px rgba(0, 0, 0, 0.7),  /* Sombra negra en dirección opuesta */
+    0px 0px 2px rgba(0, 0, 0, 1),     /* Borde alrededor de cada letra */
+    0px 0px 3px rgba(0, 0, 0, 1),     /* Borde más pronunciado */
+    1px 1px 2px rgba(0, 0, 0, 0.8),   /* Sombra negra adicional */
+    -1px -1px 2px rgba(0, 0, 0, 0.8); /* Sombra negra en dirección opuesta */
+}
+
+.abreviatura::before {
+  content: attr(data-text); /* Repite el texto */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1; /* Coloca detrás del texto */
+  color: black; /* Color del borde */
+  -webkit-text-stroke: 1px black; /* Borde negro */
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 4px;
+  display: inline-block;
+  font-size: 20px;
+}
   
