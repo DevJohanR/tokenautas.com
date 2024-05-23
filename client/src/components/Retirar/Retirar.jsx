@@ -119,8 +119,8 @@ const Retiros = () => {
     };
 
     return (
-        <div className="w-full h-full bg-gray-900 text-white">
-            <div className="mx-auto px-4 sm:px-6 lg:px-8 py-5 lg:py-8 xl:py-10">
+        <div className={`w-full h-full bg-gray-900 text-white ${styles.contenedorPrincipal}`}>
+            <div className={`mx-auto px-4 sm:px-6 lg:px-8 py-5 lg:py-8 xl:py-10 ${styles.scrollableContent}`}>
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-4 lg:gap-4">
                     <form onSubmit={handleSubmit} className="space-y-3 md:col-span-2">
                         <input className={`bg-gray-800 appearance-none border-none rounded w-full py-2 px-3 lg:py-3 lg:px-4 xl:py-4 xl:px-5 text-lg leading-tight focus:outline-none focus:bg-gray-700 ${styles['form-input']}`} type="text" name="banco_id" value={withdrawalData.banco_id} onChange={handleWithdrawalChange} placeholder="Banco a retirar" required readOnly={true} />
