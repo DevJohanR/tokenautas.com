@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-
+import { Link } from 'react-router-dom';
 import fondoAutenticacion from '/fondos/astronautaRegistro.webp';
 import GOOGLE_ICON from "/logos/google.svg";
 
@@ -116,25 +116,28 @@ const Register = () => {
             >
               {loading ? 'Registrando...' : 'Registrarse'}
             </button>
+            <div className='relative flex items-center justify-center mt-4'>
+              <div className='absolute w-full border-t border-gray-300'></div>
+              <div className='relative z-10 px-4 bg-white text-xs lg:text-sm'>o</div>
+            </div>
+            <Link to="/login">
             <button 
               className='w-full py-2 mt-4 text-black border border-black rounded-md text-lg'
             > 
               Ingresar 
             </button>
-            <div className='relative flex items-center justify-center mt-4'>
-              <div className='absolute w-full border-t border-gray-300'></div>
-              <div className='relative z-10 px-4 bg-white text-xs lg:text-sm'>o</div>
-            </div>
-            <button 
+            </Link>
+           
+            { /*  <button 
               className='w-full py-2 mt-4 text-black rounded-md text-lg flex items-center justify-center border border-gray-300'
             >
-              <img src={GOOGLE_ICON} alt="Google" style={{ height: '20px', width: '20px', marginRight: '10px' }} />
+          <img src={GOOGLE_ICON} alt="Google" style={{ height: '20px', width: '20px', marginRight: '10px' }} />
               Registrate con Google
-            </button>
+  </button>*/}
           </div>
           <p className='mt-4 text-center text-sm'>
             ¿Ya tienes cuenta? 
-            <a href="#" className='text-blue-600 hover:underline'> ¡Inicia Sesion aquí!</a>
+            <a href="#" className='text-blue-600 hover:underline'></a>
           </p>
         </div>
       </div>

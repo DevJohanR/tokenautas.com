@@ -3,6 +3,7 @@ import React from 'react';
 import styles from './Header.module.css';
 import people from '/fondos/people.png'
 import ai from '/fondos/imagenHeroPrincipal.png';
+import { Link } from 'react-router-dom';
 
 
 
@@ -29,8 +30,10 @@ Chaturbate, bongacams, facil y rapido, recibe tu dinero en la cuenta bancaria qu
       
 
         <div className={styles.buttonActionMobile} >
-        <button type="button">Ingresar</button>
-        <button type="button">Registrarse</button>
+          <Link to="/login"><button type="button">Ingresar</button></Link>
+          <Link to="/register"><button type="button">Registrarse</button></Link>
+        
+       
         
       </div>
       </div>

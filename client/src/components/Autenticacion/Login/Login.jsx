@@ -81,7 +81,7 @@ const Login = () => {
             </button>
           </div>
           <p className='mt-4 text-center text-sm'>
-            ¿No tienes cuenta? <a href="#" className='text-blue-600 hover:underline'>¡Regístrate aquí!</a>
+            ¿No tienes cuenta? <a href="#" className='text-blue-600 hover:underline'></a>
           </p>
         </div>
       </div>
