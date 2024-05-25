@@ -61,7 +61,7 @@ const Tether = () => {
       </div>
       <div className={styles.descripcionBitcoin}>
         <h1>TETHER</h1>
-        <span>
+        <span className={styles.disclamer}>
           <strong>DESCARGO DE RESPONSABILIDAD DEPOSITOS EN USDT DE LA RED TRC20:</strong> 
         </span>
         <p>

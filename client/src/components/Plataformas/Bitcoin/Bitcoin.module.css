@@ -85,9 +85,28 @@ h1, span, p {
     }
 }
 
+@media (min-width:370px) and (max-width:449px) {
+    .descripcionBitcoin{
+       
+        min-height: 150px;
+        background-color: black;
+        border-radius: 5px;
+        font-size: 13px;
+        text-align: center;
+    }
+
+    .disclamer{
+        padding: 20px;
+        font-size: 14px;
+        text-align: center;
+    }
+}
+
+
 @media (max-width: 500px) {
     .Bitcoin {
         flex-direction: column;
+        
     }
 
     .imagenBitcoin {
@@ -100,13 +119,19 @@ h1, span, p {
         min-height: 150px;
         background-color: black;
         border-radius: 5px;
+       
     }
-    .descripcionBitcoin  h1{
+    
+
+
+  .descripcionBitcoin  h1{
        font-weight: bold;
        font-size: 30px;
     }
     
 
+
+    
 }
 
 @media (min-width: 501px) and (max-width: 1186px) {
