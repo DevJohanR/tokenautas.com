@@ -63,7 +63,11 @@ const RegistrarBancos = () => {
     return (
         <div className="registrarB max-w-7xl mx-auto px- sm:px-6 lg:px-8 py-5 bg-gray-800 text-white rounded-lg shadow-lg overflow-hidden" style={{ maxHeight: '100vh', backgroundColor: '#121026' }}>
           <div className={`${styles.scrollDiv} overflow-auto p-5`} style={{ maxHeight: 'calc(100vh - 4rem)' }}>
-                <h1 className="text-3xl mb-6 font-bold underline decoration-blue-500 decoration-4">Registra aquí los bancos donde recibirás el pago por tus tokens</h1>
+          <h1 className="text-3xl mb-6 font-bold underline decoration-white decoration-4">
+  Registra aquí los bancos donde recibirás el pago por tus tokens
+</h1>
+
+
                 <form onSubmit={handleSubmit} className="space-y-6 mb-6">
                     <input type="hidden" name="user_id" value={formData.user_id} />
                     <input className="bg-gray-700 appearance-none border-none rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:bg-gray-600" type="text" name="alias" value={formData.alias} onChange={handleChange} placeholder="Alias" required />
@@ -72,7 +76,10 @@ const RegistrarBancos = () => {
                     <input className="bg-gray-700 appearance-none border-none rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:bg-gray-600" type="text" name="titular_cuenta" value={formData.titular_cuenta} onChange={handleChange} placeholder="Titular de la cuenta" required />
                     <input className="bg-gray-700 appearance-none border-none rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:bg-gray-600" type="text" name="cedula_titular" value={formData.cedula_titular} onChange={handleChange} placeholder="Cédula del titular" required />
                     <input className="bg-gray-700 appearance-none border-none rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:bg-gray-600" type="text" name="numeroCuenta" value={formData.numeroCuenta} onChange={handleChange} placeholder="Número de Cuenta" required />
-                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Registrar Banco</button>
+                    <button className="bg-black-500 hover:bg-pink-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline border-2 border-white" type="submit">
+  Registrar Banco
+</button>
+
                 </form>
                 <div>
                     <h2 className="text-2xl font-semibold mb-4">Tus Bancos Registrados</h2>
@@ -81,7 +88,10 @@ const RegistrarBancos = () => {
                             {banks.map((bank, index) => (
                                 <li key={index} className="flex justify-between items-center p-2 bg-gray-800 rounded-lg">
                                     <span className="font-medium">{bank.alias} - {bank.nombre_banco} - {bank.tipo_cuenta}</span>
-                                    <button onClick={() => showBankDetails(bank)} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded focus:outline-none focus:shadow-outline">Ver</button>
+                                    <button onClick={() => showBankDetails(bank)} className="bg-black-500 hover:bg-pink-800 text-white font-bold py-1 px-3 rounded focus:outline-none focus:shadow-outline border-2 border-white">
+  Ver
+</button>
+
                                 </li>
                             ))}
                         </ul>

@@ -67,6 +67,7 @@ const Tether = () => {
         <p>
           Por favor, tenga en cuenta que los depósitos realizados en Tether <strong>(USDT) </strong> de la red TRC20 deben ser realizados con precaución y entendimiento pleno de los riesgos asociados. Activos Digitales no se hace responsable de pérdidas, retrasos o cualquier otro inconveniente causado por depósitos en Tether <strong>(USDT).</strong> de la red TRC20. Recomendamos encarecidamente verificar la dirección del monedero y confirmar la compatibilidad con la red TRC20 antes de realizar cualquier depósito. Además, le recomendamos que se informe sobre los procedimientos de seguridad adecuados para el almacenamiento y la gestión de criptomonedas.
         </p>
+        <h1>Billetera:</h1>
         <span className={styles.billetera}>
           <FaRegCopy onClick={copiarAlPortapapeles} style={{cursor: "pointer"}} />
           <MostrarTether ref={mostrarTetherRef} />

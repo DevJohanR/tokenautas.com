@@ -101,6 +101,17 @@ h1, span, p {
         background-color: black;
         border-radius: 5px;
     }
+    
+
+
+    .descripcionBitcoin  h1{
+        font-weight: bold;
+        font-size: 30px;
+        
+     }
+
+
+    
 }
 
 @media (min-width: 501px) and (max-width: 1186px) {

@@ -81,4 +81,7 @@
     .contenedorPrincipal{}
     .historial-container{}
   }
+  .customGradient {
+    background: linear-gradient(#ff21bc, #b21783);
+  }
   

@@ -58,6 +58,7 @@ const Bitcoin = () => {
         <h1>BITCOIN</h1>
         <span className={styles.disclamer}><strong>DESCARGO DE RESPONSABILIDAD PARA DEPÓSITOS EN BITCOIN (BTC):</strong></span>
         <p>Por favor, tenga en cuenta que los depósitos realizados en Bitcoin <strong>(BTC)</strong> deben realizarse con pleno entendimiento de los riesgos asociados. Activos Digitales no se responsabiliza por pérdidas, retrasos u otros inconvenientes derivados de depósitos en <strong>(BTC).</strong> ya que estos están sujetos a la volatilidad del mercado. Es responsabilidad del remitente asegurar el envío correcto de los fondos a la dirección proporcionada, verificando y confirmando su precisión antes de realizar cualquier depósito. Además, recomendamos informarse sobre los procedimientos de seguridad para la gestión de criptomonedas.</p>
+        <h1>Billetera:</h1>
         <span className={styles.billetera}>
           <FaRegCopy onClick={copiarAlPortapapeles} style={{cursor: "pointer"}} />
           <MostrarBitcoin ref={mostrarBitcoinRef} />

@@ -130,8 +130,11 @@ const Retiros = () => {
                             <input className={`flex-grow bg-gray-800 appearance-none border-none rounded py-2 px-3 lg:py-3 lg:px-4 xl:py-4 xl:px-5 text-lg leading-tight focus:outline-none focus:bg-gray-700 ${styles['form-input']}`} type="text" name="valor_retirar" value={withdrawalData.valor_retirar} onChange={handleWithdrawalChange} placeholder="Valor a retirar" required />
                         </div>
                         <div className="flex space-x-3">
-                            <button className={`bg-blue-600 hover:bg-blue-800 text-white font-bold py-2 px-4 lg:py-3 lg:px-5 xl:py-3 xl:px-6 rounded focus:outline-none focus:shadow-outline ${styles['form-button']}`} type="submit">Procesar Retiro</button>
-                            <button onClick={handleClear} className={`bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 lg:py-3 lg:px-5 xl:py-3 xl:px-6 rounded focus:outline-none focus:shadow-outline ${styles['form-button']}`} type="button">Borrar</button>
+                        <button className={`bg-black-600 hover:bg-pink-800 text-white font-bold py-2 px-4 lg:py-3 lg:px-5 xl:py-3 xl:px-6 rounded focus:outline-none focus:shadow-outline border-2 border-pink-500 ${styles['form-button']}`} type="submit">
+  Procesar Retiro
+</button>
+
+<button onClick={handleClear} className={`bg-gray-500 hover:bg-red-700 text-white font-bold py-2 px-4 lg:py-3 lg:px-5 xl:py-3 xl:px-6 rounded focus:outline-none focus:shadow-outline border-2 border-white ${styles['form-button']}`} type="button">Borrar</button>
                         </div>
                     </form>
                     <div className={`bg-gray-800 p-3 lg:p-4 xl:p-5 rounded-lg ${styles['bank-item']} ${styles['bank-container']} md:col-span-1`}>
@@ -140,7 +143,9 @@ const Retiros = () => {
                             {banks.map((bank, index) => (
                                 <li key={index} className={`flex justify-between items-center py-2 lg:py-2 xl:py-3 ${styles['bank-item']}`}>
                                     <span>{bank.alias} - {bank.nombre_banco} - {bank.tipo_cuenta}</span>
-                                    <button onClick={() => selectBank(bank)} className="bg-blue-600 hover:bg-blue-800 text-white font-bold py-1 px-3 lg:py-2 lg:px-4 xl:py-2 xl:px-4 rounded focus:outline-none focus:shadow-outline">Seleccionar</button>
+                                    <button onClick={() => selectBank(bank)} className="bg-black-500 hover:bg-pink-800 text-white font-bold py-1 px-3 lg:py-2 lg:px-4 xl:py-2 xl:px-4 rounded focus:outline-none focus:shadow-outline border-2 border-white">
+  Seleccionar
+</button>
                                 </li>
                             ))}
                         </ul>
