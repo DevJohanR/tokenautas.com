@@ -1,10 +1,19 @@
 import React from 'react';
-import styles from './Article.module.css';
+import './article.css';
 
-const Article = () => {
-  return (
-    <div className={styles.Article}>Article</div>
-  );
-};
+const Article = ({ imgUrl, date, text }) => (
+  <div className="gpt3__blog-container_article">
+    <div className="gpt3__blog-container_article-image">
+      <img src={imgUrl} alt="blog" className="blog-image"/>
+    </div>
+    <div className="gpt3__blog-container_article-content">
+      <div>
+        <p>{date}</p>
+        <h3>{text}</h3>
+      </div>
+    
+    </div>
+  </div>
+);
 
 export default Article;

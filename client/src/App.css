@@ -3,7 +3,8 @@
     height: 100vh;
     background: #121026;
     display: flex;
-    overflow: hidden;
+    overflow-x: hidden;
+  
   }
   
   .App::-webkit-scrollbar {
@@ -16,4 +17,9 @@
       overflow-y: scroll;
     }
   }
+
+
+  /*OJO*/
+
+  
   
