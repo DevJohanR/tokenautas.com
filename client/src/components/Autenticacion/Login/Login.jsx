@@ -44,15 +44,33 @@ const Login = () => {
     }
   };
 
+  const handleForgotPassword = () => {
+    Swal.fire({
+      title: 'Recuperar contraseña',
+      text: 'Para recuperar tu contraseña comunícate al +57 312 3568516.',
+      icon: 'info',
+      confirmButtonText: 'Aceptar'
+    });
+  };
+
+  const handleGoogleLogin = () => {
+    Swal.fire({
+      title: 'Ingreso con Google',
+      text: 'Podrás ingresar con Google después de la fase beta de Tokenautas.',
+      icon: 'info',
+      confirmButtonText: 'Aceptar'
+    });
+  };
+
   return (
     <div className='flex flex-col lg:flex-row items-center justify-center h-screen w-screen'>
-  <div className='relative w-full lg:w-1/2 h-screen bg-center bg-cover flex items-center justify-center' style={{ backgroundImage: `url(${fondoAutenticacion})` }}>
-  <div className='absolute inset-0 bg-black opacity-50'></div> {/* Capa oscura */}
-  <div className='relative text-center lg:text-left p-8 lg:p-0 lg:m-24'>
-    <h1 className='text-4xl text-white font-bold mb-4'>Aumenta tus ingresos con tokenautas</h1>
-    <p className='text-xl text-white'>Comienza ahora y disfruta de pagos instantáneos en tu cuenta bancaria</p>
-  </div>
-</div>
+      <div className='relative w-full lg:w-1/2 h-screen bg-center bg-cover flex items-center justify-center' style={{ backgroundImage: `url(${fondoAutenticacion})` }}>
+        <div className='absolute inset-0 bg-black opacity-50'></div> {/* Capa oscura */}
+        <div className='relative text-center lg:text-left p-8 lg:p-0 lg:m-24'>
+          <h1 className='text-4xl text-white font-bold mb-4'>Aumenta tus ingresos con tokenautas</h1>
+          <p className='text-xl text-white'>Comienza ahora y disfruta de pagos instantáneos en tu cuenta bancaria</p>
+        </div>
+      </div>
 
       <div className='w-full lg:w-1/2 h-screen flex flex-col items-center justify-center bg-white'>
         <div className='w-full max-w-md p-8'>
@@ -65,7 +83,7 @@ const Login = () => {
                 <input type="checkbox" className='form-checkbox' />
                 <span className='text-sm'>Recordar siempre</span>
               </label>
-              <a href="#" className='text-sm text-blue-600 hover:underline'>¿Olvidaste tu contraseña?</a>
+              <a href="#" className='text-sm text-blue-600 hover:underline' onClick={handleForgotPassword}>¿Olvidaste tu contraseña?</a>
             </div>
             <button onClick={handleLogin} className='w-full py-2 mt-4 bg-black text-white rounded-md text-lg'>
               {loading ? 'Cargando...' : 'Ingresar'}
@@ -75,7 +93,7 @@ const Login = () => {
               <div className='absolute w-full border-t border-gray-300'></div>
               <div className='relative z-10 px-4 bg-white text-xs lg:text-sm'>o</div>
             </div>
-            <button className='w-full py-2 mt-4 text-black rounded-md text-lg flex items-center justify-center border border-gray-300'>
+            <button onClick={handleGoogleLogin} className='w-full py-2 mt-4 text-black rounded-md text-lg flex items-center justify-center border border-gray-300'>
               <img src={GOOGLE_ICON} alt="Google" style={{ height: '20px', width: '20px', marginRight: '10px' }} />
               Ingresar con Google
             </button>

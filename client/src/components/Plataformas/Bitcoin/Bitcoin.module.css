@@ -256,6 +256,7 @@ h1, span, p {
         width: 90%; /* Reduce el tamaño de la imagen */
         height: 90%; /* Reduce el tamaño de la imagen */
         object-fit: contain;
+        max-width: 250px;
         position: relative; /* Ajusta la posición de la imagen */
         z-index: 3;
     }

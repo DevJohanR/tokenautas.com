@@ -1,6 +1,8 @@
 import React from 'react';
 import Feature from '../Features/Features';
 import './WhatTokenautas.css';
+import { Link } from 'react-router-dom';
+
 
 const WhatGPT3 = () => (
   <div className="gpt3__whatgpt3 section__margin" id="wgpt3">
@@ -9,7 +11,9 @@ const WhatGPT3 = () => (
     </div>
     <div className="gpt3__whatgpt3-heading">
       <h1 className="gradient__text">Las posibilidades están más allá de tu imaginación.</h1>
+      <Link to="/login">
       <p style={{fontWeight: "bold"}}>¡Explora el sin fin de beneficios para ti!</p>
+      </Link>
     </div>
     <div className="gpt3__whatgpt3-container">
       <Feature title="Billetera de Criptomonedas" text="Las modelos pueden usar sus billeteras para recibir regalos en criptomonedas de sus mejores tippers, asegurando que los fondos lleguen directamente y de manera segura a sus cuentas." />

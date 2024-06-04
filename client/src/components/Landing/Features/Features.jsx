@@ -1,6 +1,7 @@
 import React from 'react';
 import Feature from '../Containers/Features/Features';
 import './features.css';
+import { Link } from 'react-router-dom';
 
 const featuresData = [
   {
@@ -22,7 +23,9 @@ const Features = () => (
   <div className="gpt3__features section__padding" id="features">
     <div className="gpt3__features-heading">
       <h1 className="gradient__text">Retira Rapido: Tus Ganancias en Menos de 24 Horas, Compruebalo ahora. ¡Registrate!</h1>
-      <p>¡Explora nuestra plataforma aqui!</p>
+      <Link to="/register">
+      <p>¡Registrate y Explora nuestra plataforma ahora!</p>
+      </Link>
     </div>
     <div className="gpt3__features-container">
       {featuresData.map((item, index) => (

@@ -14,10 +14,10 @@ const Navbar = () => {
           <img src={logo} alt="logo" />
         </div>
         <div className={styles["gpt3__navbar-links_container"]}>
-          <p><a href="#home">Home</a></p>
+     
           <p><a href="#wgpt3">Nuestra Empresa</a></p>
           <p><a href="#possibility">Tus Tokens</a></p>
-          <p><a href="#features">Clientes</a></p>
+          <p><a href="#features">Beneficios</a></p>
           <p><a href="#blog">Tutorial</a></p>
         </div>
       </div>

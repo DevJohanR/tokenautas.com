@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import './MainContainer.css';
 import axios from 'axios';
-
 
 import Banner from "/fondos/BannerDash.webp";
 import CardMain from "../CardMain/CardMain";
@@ -11,13 +11,11 @@ import Card2 from "../../../../public/plataformasDashboard/xvideoscams.png";
 import Card3 from "../../../../public/plataformasDashboard/stripchat.png";
 import Card4 from "../../../../public/plataformasDashboard/camsoda.png";
 import Card5 from "../../../../public/plataformasDashboard/cam4.png";
-import Card6 from "../../../../public/plataformasDashboard/cam4.png";
-
+import Card6 from "../../../../public/plataformasDashboard/bonga.png";
 
 import MainRightBottomCard from "../MainRightBottomCard/MainRightBottomCard";
 import MainRightTopCard from "../MainRightTopCard/MainRightTopCard";
 
-// Aquí definimos los datos de las criptomonedas que queremos mostrar
 const criptoData = [
   {
     nombre: "Bitcoin",
@@ -35,15 +33,12 @@ const criptoData = [
 ];
 
 function MainContainer() {
-
   const [username, setUsername] = useState('');
   const [walletBalance, setWalletBalance] = useState('Cargando...');
 
   useEffect(() => {
-    // Obtener el userId de alguna forma, podría ser del localStorage o de la sesión del usuario
     const userId = localStorage.getItem('userId'); // Asegúrate de que 'userId' esté almacenado en el localStorage
     if (!userId) {
-      // Manejar el error o redirigir al usuario para iniciar sesión
       console.error('No se encontró el userId');
       return;
     }
@@ -57,11 +52,7 @@ function MainContainer() {
       });
   }, []);
 
-
-
-
   useEffect(() => {
-    // Suponemos que el userId está almacenado en localStorage
     const userId = localStorage.getItem('userId');
     if (userId) {
       axios.get(`https://tokenautasreact-node.onrender.com/users/wallet/${userId}`)
@@ -73,23 +64,29 @@ function MainContainer() {
           setWalletBalance('Error al cargar');
         });
     } else {
-      // Manejar la ausencia de userId, posiblemente mostrando un mensaje o redirigiendo al login
       setWalletBalance('Usuario no identificado');
     }
   }, []);
 
+  const handleCardClick = () => {
+    Swal.fire({
+      title: 'Aviso',
+      text: 'Por ahora solo estamos comprando tokens de Chaturbate',
+      icon: 'info',
+      confirmButtonText: 'Aceptar'
+    });
+  };
+
   return (
     <div className="mainContainer">
-       <div className="left">
-        
+      <div className="left">
         <div className="banner" style={{
-            background: `url(${Banner})`,
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-            backgroundSize: "cover",
-          
-          }}>
-           <div className="overlay" style={{
+          background: `url(${Banner})`,
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+        }}>
+          <div className="overlay" style={{
             position: "absolute",
             top: 0,
             left: 0,
@@ -99,57 +96,55 @@ function MainContainer() {
             borderRadius: "10px",
             zIndex: 1,
           }}></div>
-            
 
-        <div className="textContainer" style={{
+          <div className="textContainer" style={{
             position: "relative",
             zIndex: 2,
             padding: "20px",
             marginLeft: "30px"
           }}>
-       
-        <h1>TU SALDO</h1>
-
-          <h2>{walletBalance}</h2>
-          <p>{username}</p>
-          <div className="bid">
-            <Link to="/retirar" >  <a href="#" className="button1">
-                Retirar
-            </a></Link>
-          
-            <p>
-              <span></span>
-            </p>
+            <h1>TU SALDO</h1>
+            <h2>{walletBalance}</h2>
+            <p>{username}</p>
+            <div className="bid">
+              <Link to="/retirar">
+                <a href="#" className="button1">Retirar</a>
+              </Link>
+              <p><span></span></p>
+            </div>
           </div>
         </div>
-        </div>
-
 
         <div className="cards">
           <div className="filters">
             <div className="popular">
               <h2>VENDE TUS TOKENS</h2>
-   
             </div>
           </div>
 
           <main>
-          <Link to="/chaturbate">
-          <CardMain imgSrc={Card1} title={"Chaturbate"} hearts={"+"} />
-          </Link>
-          <CardMain imgSrc={Card2} title={"Xvideoscams"} hearts={"+"} />
-          <CardMain imgSrc={Card3} title={"Stripchat"} hearts={"+"} />
-          <CardMain imgSrc={Card4} title={"Camsoda"} hearts={"+"} />
-          <CardMain imgSrc={Card5} title={"Cam4"} hearts={"+"} />
-          <CardMain imgSrc={Card6} title={"LiveJasmin"} hearts={"+"} />
-         
+            <Link to="/chaturbate">
+              <CardMain imgSrc={Card1} title={"Chaturbate"} hearts={"+"} />
+            </Link>
+            <div onClick={handleCardClick}>
+              <CardMain imgSrc={Card2} title={"XvideosCams"} hearts={"+"} />
+            </div>
+            <div onClick={handleCardClick}>
+              <CardMain imgSrc={Card3} title={"Stripchat"} hearts={"+"} />
+            </div>
+            <div onClick={handleCardClick}>
+              <CardMain imgSrc={Card4} title={"Camsoda"} hearts={"+"} />
+            </div>
+            <div onClick={handleCardClick}>
+              <CardMain imgSrc={Card5} title={"Cam4"} hearts={"+"} />
+            </div>
+            <div onClick={handleCardClick}>
+              <CardMain imgSrc={Card6} title={"BongaCams"} hearts={"+"} />
+            </div>
           </main>
         </div>
-
-      
       </div>
       <div className="right">
-        {/* Pasamos los datos de criptomonedas al componente MainRightTopCard */}
         <MainRightTopCard criptoData={criptoData} />
         <MainRightBottomCard />
       </div>
