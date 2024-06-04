@@ -1,72 +1,98 @@
 //server/src/config/arrays.js
 const arraybtc = [
+  //1
   {
-    imagen: 'assets/(NUMERO1)BTC1LLqNQoeFrQPJWDq9ctAF89nkFXtA5Nygq.jpeg',
-    palabraSecreta: '1LLqNQoeFrQPJWDq9ctAF89nkFXtA5Nygq',
-  },
-  {
-    imagen: 'assets/NUMERO5BTC1JvBVVCgQH36jqDe9dTKkbrELyNzoPTBKy.jpeg',
-    palabraSecreta: '1JvBVVCgQH36jqDe9dTKkbrELyNzoPTBKy',
-  },
-  {
-    imagen: 'assets/NUMERO7BTC12sYzrtr48rJaCq8EGR7diRtswwmVU3H5L.jpeg',
-    palabraSecreta: '12sYzrtr48rJaCq8EGR7diRtswwmVU3H5L',
-  },
-  {
-    imagen: 'assets/NUMERO9BTC1DgZBBeVFLfPQmqXkgTvcbVEwFoZd9kcHT.jpeg',
+    imagen: 'assets/1DgZBBeVFLfPQmqXkgTvcbVEwFoZd9kcHT.png',
     palabraSecreta: '1DgZBBeVFLfPQmqXkgTvcbVEwFoZd9kcHT',
   },
+  //2
   {
-    imagen: 'assets/NUMERO11BTC1NPnQPvYZfQtSWBp3iZzD1ANeRRjgW9DyT.jpeg',
+    imagen: 'assets/1HDDa5vMaTC4VSo2XUeyAK6mCpKNbwpv9Q.png',
+    palabraSecreta: '1HDDa5vMaTC4VSo2XUeyAK6mCpKNbwpv9Q',
+  },
+  //3
+  {
+    imagen: 'assets/1JvBVVCgQH36jqDe9dTKkbrELyNzoPTBKy.png',
+    palabraSecreta: '1JvBVVCgQH36jqDe9dTKkbrELyNzoPTBKy',
+  },
+  //4
+  {
+    imagen: 'assets/1LdhHVmpjsh3w1TgYUyvfKxjEtK4Pwjeju.png',
+    palabraSecreta: '1LdhHVmpjsh3w1TgYUyvfKxjEtK4Pwjeju',
+  },
+  //5
+  {
+    imagen: 'assets/1LLqNQoeFrQPJWDq9ctAF89nkFXtA5Nygq.png',
+    palabraSecreta: '1LLqNQoeFrQPJWDq9ctAF89nkFXtA5Nygq',
+  },
+  //6
+  {
+    imagen: 'assets/1NPnQPvYZfQtSWBp3iZzD1ANeRRjgW9DyT.png',
     palabraSecreta: '1NPnQPvYZfQtSWBp3iZzD1ANeRRjgW9DyT',
   },
+  //7
   {
-    imagen: 'assets/NUMERO13BTC19xCA2hnc762SspR2UR7czu45dLNtxVhrs.jpeg',
-    palabraSecreta: '19xCA2hnc762SspR2UR7czu45dLNtxVhrs',
+    imagen: 'assets/12J93HsgfvieRTiNXXhd6hpwcStDqjGM28.png',
+    palabraSecreta: '12J93HsgfvieRTiNXXhd6hpwcStDqjGM28',
   },
+  //8
   {
-    imagen: 'assets/NUMERO15BTC15FruFyJv2DnbqrGkj9gA1o2sDXGKMUBmT.jpeg',
+    imagen: 'assets/12sYzrtr48rJaCq8EGR7diRtswwmVU3H5L.png',
+    palabraSecreta: '12sYzrtr48rJaCq8EGR7diRtswwmVU3H5L',
+  },
+  //9
+  {
+    imagen: 'assets/15FruFyJv2DnbqrGkj9gA1o2sDXGKMUBmT.png',
     palabraSecreta: '15FruFyJv2DnbqrGkj9gA1o2sDXGKMUBmT',
-  },
-  {
-    imagen: 'assets/NUMERO17BTC1HDDa5vMaTC4VSo2XUeyAK6mCpKNbwpv9Q.jpeg',
-    palabraSecreta: '1HDDa5vMaTC4VSo2XUeyAK6mCpKNbwpv9Q',
   },
 ];
 
 
 const arrayusdt = [
+  //1
   {
-    imagen: 'assets/(NUMERO4)USDTTK8PxYPYmmUUr4UnmQxmXAE8kDBUCsgp8D.jpeg',
-    palabraSecreta: 'TK8PxYPYmmUUr4UnmQxmXAE8kDBUCsgp8D',
+    imagen: 'assets/TEBcKKR4Ne5e8ojEemkDkUsz8KpJSreae6.png',
+    palabraSecreta: 'TEBcKKR4Ne5e8ojEemkDkUsz8KpJSreae6',
   },
+  //2
   {
-    imagen: 'assets/NUMERO2USDTTYpH9rHr1ve2kPySiCiofgmF7L9be2aD2d.jpeg',
-    palabraSecreta: 'TYpH9rHr1ve2kPySiCiofgmF7L9be2aD2d',
-  },
-  {
-    imagen: 'assets/NUMERO6USDTTHxCnBgTex9SB89SpNbRLLGREQhrxHb9RQ.jpeg',
+    imagen: 'assets/THxCnBgTex9SB89SpNbRLLGREQhrxHb9RQ.png',
     palabraSecreta: 'THxCnBgTex9SB89SpNbRLLGREQhrxHb9RQ',
   },
+  //3
   {
-    imagen: 'assets/NUMERO8USDTTNpumi7rGi9TZQypayi3b5kRCHsPxRVW2F.jpeg',
-    palabraSecreta: 'TNpumi7rGi9TZQypayi3b5kRCHsPxRVW2F',
-  },
-  {
-    imagen: 'assets/NUMERO10USDTTJPKZLzA8qTsPKuSNx4P5Pjpgz4ZicHYcB.jpeg',
+    imagen: 'assets/TJPKZLzA8qTsPKuSNx4P5Pjpgz4ZicHYcB.png',
     palabraSecreta: 'TJPKZLzA8qTsPKuSNx4P5Pjpgz4ZicHYcB',
   },
+  //4
   {
-    imagen: 'assets/NUMERO12USDTTX3AzKjaJGwHeYH4KYi5PQ1XFQTmcB4DsF.jpeg',
-    palabraSecreta: 'TX3AzKjaJGwHeYH4KYi5PQ1XFQTmcB4DsF',
+    imagen: 'assets/TK8PxYPYmmUUr4UnmQxmXAE8kDBUCsgp8D.png',
+    palabraSecreta: 'TK8PxYPYmmUUr4UnmQxmXAE8kDBUCsgp8D',
+  //5
   },
   {
-    imagen: 'assets/NUMERO14USDTTPDiaR9tdQNAr8edfhwUXEDoRdo5qPEuuZ.jpeg',
+    imagen: 'assets/TLDYnFD8WzBbWZB7YuHaCgBpzKa9p78vxH.png',
+    palabraSecreta: 'TLDYnFD8WzBbWZB7YuHaCgBpzKa9p78vxH',
+  },
+  //6
+  {
+    imagen: 'assets/TN22FLxNSs7rk32fjC6qm5ruqz7BhiVFZY.png',
+    palabraSecreta: 'TN22FLxNSs7rk32fjC6qm5ruqz7BhiVFZY',
+  },
+  //7
+  {
+    imagen: 'assets/TNpumi7rGi9TZQypayi3b5kRCHsPxRVW2F.png',
+    palabraSecreta: 'TNpumi7rGi9TZQypayi3b5kRCHsPxRVW2F',
+  },
+  //8
+  {
+    imagen: 'assets/TPDiaR9tdQNAr8edfhwUXEDoRdo5qPEuuZ.png',
     palabraSecreta: 'TPDiaR9tdQNAr8edfhwUXEDoRdo5qPEuuZ',
   },
+  //9
   {
-    imagen: 'assets/NUMERO16USDTTEBcKKR4Ne5e8ojEemkDkUsz8KpJSreae6.jpeg',
-    palabraSecreta: 'TEBcKKR4Ne5e8ojEemkDkUsz8KpJSreae6',
+    imagen: 'assets/TX3AzKjaJGwHeYH4KYi5PQ1XFQTmcB4DsF.png',
+    palabraSecreta: 'TX3AzKjaJGwHeYH4KYi5PQ1XFQTmcB4DsF',
   },
 ];
 
