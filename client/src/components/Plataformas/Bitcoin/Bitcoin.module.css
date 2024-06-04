@@ -43,6 +43,7 @@ h1, span, p {
     left: 0;
     z-index: 3;
 
+
 }
 
 .descripcionBitcoin {
@@ -91,10 +92,9 @@ h1, span, p {
         min-height: 150px;
         background-color: black;
         border-radius: 5px;
-        font-size: 13px;
+        font-size: 12.5px;
         text-align: center;
     }
-
     .disclamer{
         padding: 20px;
         font-size: 14px;
@@ -256,7 +256,6 @@ h1, span, p {
         width: 90%; /* Reduce el tamaño de la imagen */
         height: 90%; /* Reduce el tamaño de la imagen */
         object-fit: contain;
-        max-width: 250px;
         position: relative; /* Ajusta la posición de la imagen */
         z-index: 3;
     }
