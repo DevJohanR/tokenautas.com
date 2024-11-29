@@ -28,6 +28,9 @@ const AdminPanel = () => {
   // Verificar si es móvil
   const isMobile = window.innerWidth <= 768;
 
+  
+
+
   // Estilos
   const containerStyle = {
     padding: isMobile ? "20px" : "30px",
@@ -115,6 +118,30 @@ const AdminPanel = () => {
     marginBottom: "20px",
   };
 
+
+  const buttonStyle = {
+    display: "inline-block", // Ajusta el ancho al contenido
+    margin: "10px auto",
+    padding: "8px 16px", // Margen interno ajustado
+    backgroundColor: "#fc466b",
+    color: "#fff",
+    border: "none",
+    borderRadius: "8px",
+    textDecoration: "none",
+    textAlign: "center",
+    fontWeight: "bold",
+    fontSize: "1rem", // Texto más pequeño
+    boxShadow: "0 3px 6px rgba(0, 0, 0, 0.2)",
+    cursor: "pointer", // Asegura que el cursor sea de clic
+    transition: "background-color 0.3s, transform 0.2s",
+  };
+  
+  const buttonHoverStyle = {
+    backgroundColor: "#3f5efb",
+    transform: "scale(1.05)", // Efecto de agrandamiento al pasar el mouse
+  };
+  
+  
   return (
     <div style={containerStyle}>
       <div style={headerStyle}>
@@ -124,6 +151,15 @@ const AdminPanel = () => {
           style={{display: "none"}}
         />
         <h1 style={titleStyle}>Panel de Administración</h1>
+        
+        <Link
+          to="/admin/whatsapp"
+          style={buttonStyle}
+          onMouseOver={(e) => (e.target.style.backgroundColor = buttonHoverStyle.backgroundColor)}
+          onMouseOut={(e) => (e.target.style.backgroundColor = "#fc466b")}
+        >
+          Ver Modelos Anonimas
+        </Link>
       </div>
       {error && <div style={errorStyle}>{error}</div>}
 

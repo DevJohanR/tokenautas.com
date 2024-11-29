@@ -22,6 +22,8 @@ import AdminPanel from './components/Formulario/AdminPanel.jsx';
 import UserDetail from './components/Formulario/UserDetail.jsx';
 // Importa el componente ProtectedRoute
 import ProtectedRoute from './components/Autenticacion/Login/ProtectedRoute.jsx'; // Ajusta la ruta de importación según tu estructura de directorios
+import LoginSpace from './components/Formulario/LoginSpace.jsx';
+import WhatsAppList from './components/Formulario/WhatsAppList.jsx';
 
 function App() {
   return (
@@ -34,10 +36,30 @@ function App() {
      
         <Route path='/test' element={<TestPage/>} />
         <Route path='/blogpage' element={<BlogPage/>} />
-
+        <Route path='/login-space' element={<LoginSpace/>} />
         <Route path='/formulario' element={<Formulario/>} />
-        <Route path='/administrador' element={<AdminPanel/>} />
-        <Route path="/admin/:type/:email" element={<UserDetail />} />
+
+   {/* Protege la ruta /whatsapp anonimas con ProtectedRoute */}
+   <Route path='/admin/whatsapp' element={
+          <ProtectedRoute>
+          <WhatsAppList />
+          </ProtectedRoute>
+        } />
+
+
+         {/* Protege la ruta /administrador con ProtectedRoute */}
+         <Route path='/administrador' element={
+          <ProtectedRoute>
+            <AdminPanel />
+          </ProtectedRoute>
+        } />
+        
+        {/* Protege la ruta para UserDetail */}
+        <Route path="/admin/:type/:email" element={
+          <ProtectedRoute>
+            <UserDetail />
+          </ProtectedRoute>
+        } />
 
    {/* Protege la ruta /RetirarPage con ProtectedRoute */}
    <Route path='/retirar' element={

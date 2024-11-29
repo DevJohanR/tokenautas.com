@@ -16,6 +16,7 @@ import Card6 from "../../../../public/plataformasDashboard/bonga.png";
 import MainRightBottomCard from "../MainRightBottomCard/MainRightBottomCard";
 import MainRightTopCard from "../MainRightTopCard/MainRightTopCard";
 
+
 const criptoData = [
   {
     nombre: "Bitcoin",
