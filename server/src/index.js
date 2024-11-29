@@ -200,7 +200,40 @@ app.get('/api/detail/:type/:email', async (req, res) => {
 app.use('/uploads', express.static(uploadDir));
 
 
+// Endpoint para guardar WhatsApp
+app.post('/api/whatsapp', async (req, res) => {
+  const { whatsapp } = req.body;
 
+  if (!whatsapp || !/^\+?\d+$/.test(whatsapp)) {
+    return res.status(400).json({ error: 'Número de WhatsApp inválido.' });
+  }
+
+  try {
+    await db.query(
+      `INSERT INTO whatsapp_modelos_anonimas (whatsapp) VALUES (?)`,
+      [whatsapp]
+    );
+    res.status(201).json({ message: 'Número de WhatsApp guardado con éxito.' });
+  } catch (error) {
+    console.error('Error al guardar el número de WhatsApp:', error);
+    res.status(500).json({
+      error: 'Ocurrió un error al guardar el número. Verifique la consola del servidor.',
+    });
+  }
+});
+
+// Endpoint para obtener WhatsApp registrados
+app.get('/api/whatsapp', async (req, res) => {
+  try {
+    const [results] = await db.query(`SELECT * FROM whatsapp_modelos_anonimas ORDER BY created_at DESC`);
+    res.status(200).json(results);
+  } catch (error) {
+    console.error('Error al obtener los números de WhatsApp:', error);
+    res.status(500).json({
+      error: 'Ocurrió un error al obtener los números. Verifique la consola del servidor.',
+    });
+  }
+});
 
 // Middleware de manejo de errores global
 app.use(errorHandler);
