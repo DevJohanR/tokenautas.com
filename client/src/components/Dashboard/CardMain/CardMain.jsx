@@ -2,8 +2,8 @@ import React from "react";
 import { FaFacebook, FaTwitter, FaWhatsapp } from "react-icons/fa";
 import { FacebookShareButton, TwitterShareButton, WhatsappShareButton } from "react-share";
 
-function CardMain({ imgSrc, title }) {
-  const shareUrl = "https://tokenautas.com"; // URL principal
+function CardMain({ imgSrc, title, onSellClick, onPriceClick }) {
+  const shareUrl = "https://tokenautas.com";
   const shareText = `Vende tus tokens Aquí: ${title}`;
 
   const shareButtonStyle = {
@@ -22,8 +22,10 @@ function CardMain({ imgSrc, title }) {
   const isSmallScreen = window.matchMedia("(max-width: 1366px)").matches;
 
   const priceStyle = {
-    fontFamily: "Verdana, Geneva, Tahoma, sans-serif", // Añadir la fuente aquí
+    fontFamily: "Verdana, Geneva, Tahoma, sans-serif",
     fontWeight: 600,
+    cursor: "pointer", // Indicar que es interactivo
+    textDecoration: "underline", // Añadir subrayado para indicar que se puede hacer clic
   };
 
   return (
@@ -61,14 +63,14 @@ function CardMain({ imgSrc, title }) {
       </div>
       <div className="stats">
         <div>
-          <p style={priceStyle}>
-            Valor-Token<span>$1</span>
+          <p style={priceStyle} onClick={onPriceClick}>
+            CREAR  <span>CUENTA</span>
           </p>
         </div>
         <div>
-          <a href="#" className="button1 btn">
+          <button className="button1 btn" onClick={onSellClick}>
             Vender
-          </a>
+          </button>
         </div>
       </div>
     </div>

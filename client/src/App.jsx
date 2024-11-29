@@ -17,7 +17,9 @@ import TestPage from './routes/TestPage.jsx';
 import RegistrarBancosPage from './routes/RegistrarBancosPage.jsx';
 import RetirarPage from './routes/RetirarPage.jsx';
 import BlogPage from './components/Landing/Blog/Chaturbate/BlogPage.jsx';
-
+import Formulario from './components/Formulario/Formulario.jsx';
+import AdminPanel from './components/Formulario/AdminPanel.jsx';
+import UserDetail from './components/Formulario/UserDetail.jsx';
 // Importa el componente ProtectedRoute
 import ProtectedRoute from './components/Autenticacion/Login/ProtectedRoute.jsx'; // Ajusta la ruta de importación según tu estructura de directorios
 
@@ -32,6 +34,10 @@ function App() {
      
         <Route path='/test' element={<TestPage/>} />
         <Route path='/blogpage' element={<BlogPage/>} />
+
+        <Route path='/formulario' element={<Formulario/>} />
+        <Route path='/administrador' element={<AdminPanel/>} />
+        <Route path="/admin/:type/:email" element={<UserDetail />} />
 
    {/* Protege la ruta /RetirarPage con ProtectedRoute */}
    <Route path='/retirar' element={

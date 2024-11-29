@@ -1,6 +1,6 @@
-import blog01 from '../../../../assets/sexyimg.webp';
-import blog02 from '../../../../assets/camPrincipal.webp';
-import blog03 from '../../../../assets/modelsexy.webp';
+import blog01 from '../../../../assets/diseno.jpeg';
+import blog02 from '../../../../assets/ventas.jpeg';
+import blog03 from '../../../../assets/02.jpeg';
 import blog04 from '../../../../assets/camPrincipal.webp';
 import blog05 from '../../../../assets/camPrincipal.webp';
 

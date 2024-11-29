@@ -17,18 +17,18 @@ const Blog = () => {
   return (
     <div className="gpt3__blog section__padding" id="blog">
       <div className="gpt3__blog-heading">
-        <h1 className="gradient__text">Están pasando muchas cosas,<br /> Estamos blogueando sobre esto.</h1>
+       {/* <h1 className="gradient__text">Están pasando muchas cosas,<br /> Estamos blogueando sobre esto.</h1>*/} 
       </div>
       <div className="gpt3__blog-container">
         <div className="gpt3__blog-container_groupA" onClick={handleArticleClick}>
-          <Article imgUrl={blog01} date="Mayo 26, 2024" text="Tokenautas y Chaturbate seran aliados. Que opinan las modelos sobre esto?" />
+          <Article imgUrl={blog01} date="" text="Optimiza tu perfil con las mejores prácticas y herramientas de la industria" />
         </div>
         <div className="gpt3__blog-container_groupB">
           <div onClick={handleArticleClick}>
-            <Article imgUrl={blog02} date="Mayo 30, 2024" text="GPT-4  y el posicionamiento webcam en las plataformas. Como lo hacen?" />
+            <Article imgUrl={blog02} date="" text="Tokenautas te conecta con el éxito en plataformas webcam: Más tráfico, más ingresos." />
           </div>
           <div onClick={handleArticleClick}>
-            <Article imgUrl={blog03} date="Junio 01, 2024" text="Estrategias Innovadoras para el Posicionamiento de Modelos Webcam con GPT-4" />
+            <Article imgUrl={blog03} date="" text="Estrategias personalizadas para agencias y modelos independientes." />
           </div>
         </div>
       </div>
