@@ -143,6 +143,26 @@
 
 }
 
+
+/* Archivo CSS o estilos en línea */
+@media (min-width: 1367px) {
+  .stats {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    display: flex; /* Opcional, para alinear los elementos hijos */
+    justify-content: space-between; /* Distribuye los elementos */
+    padding: 0 20px; /* Opcional, agrega espacio a los lados */
+  }
+
+  .stats div {
+    flex: 1; /* Hace que los elementos hijos ocupen el espacio disponible */
+  }
+
+  .button1.btn {
+    margin-left: auto; /* Empuja el botón hacia la derecha */
+  }
+}
+
+
 @media  (min-width:1096px) and (max-width: 1279px) {
   .profileImage{
     right: 0;
